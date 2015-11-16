@@ -8,12 +8,13 @@ from result import Result
 class Simulation:
 
     def __init__(self, num_simulations, attrition, iterations_per_simulation, promotion_bias, 
-        num_positions_list):
+        num_positions_list, bias_towards_gender):
         self.num_simulations = num_simulations
         self.attrition = attrition
         self.iterations_per_simulation = iterations_per_simulation
         self.promotion_bias = promotion_bias
         self.num_positions_list = num_positions_list
+        self.bias_towards_gender = bias_towards_gender
         self.num_levels = len(num_positions_list)
 
         self.init_employees()
@@ -58,11 +59,10 @@ class Simulation:
         random performance rating"""
         for employee_list in self.levels_to_employees.values(): 
             for employee in employee_list:
-                if employee.gender == "female": 
-                    employee.rating = random.randint(0, 100)
-
-                else:
+                if employee.gender == self.bias_towards_gender:
                     employee.rating = random.randint(0, 100 + self.promotion_bias)
+                else:
+                    employee.rating = random.randint(0, 100)
         for level in range(self.num_levels):
             # build up list of ratings for this level
             ratings = []

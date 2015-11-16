@@ -14,7 +14,8 @@ class Control:
     Simulation" from the Feb, 1996 issue of American Psychologist.
     http://www.ruf.rice.edu/~lane/papers/male_female.pdf"""
 
-    def __init__(self, promotion_bias = 1):
+    def __init__(self, bias_towards_gender, promotion_bias = 1):
+        self.bias_towards_gender = bias_towards_gender
         self.promotion_bias = promotion_bias
         self.num_simulations = 100
         self.attrition = 15
@@ -27,14 +28,14 @@ class Control:
         self.results = []
         for i in range(self.num_simulations):
             simulation = Simulation(self.num_simulations, self.attrition, self.iterations_per_simulation, 
-                self.promotion_bias, self.num_positions_list)
+                self.promotion_bias, self.num_positions_list, self.bias_towards_gender)
             simulation.run()
             self.results.append(simulation.get_result())
 
     def print_header(self):
         """print header with var info"""
         print("Running {} simulations.".format(self.num_simulations))
-        print("{0:2}% bias for men".format(self.promotion_bias))
+        print("{0:2}% bias for {1}".format(self.promotion_bias, self.bias_towards_gender))
         print("{0:2} promotion cycles".format(self.iterations_per_simulation))
         print("{0:2}% attrition rate".format(self.attrition))
         print
@@ -67,7 +68,8 @@ class Control:
 
 if __name__ == "__main__": 
     app.run()
-    control = Control()
-    control.print_header()
-    control.run_simulations()
-    control.print_summary()
+    for gender in ["male", "female"]:
+      control = Control(gender)
+      control.print_header()
+      control.run_simulations()
+      control.print_summary()
