@@ -1,5 +1,13 @@
+from flask import Flask
+
 from averager import Averager
 from simulation import Simulation
+
+app = Flask(__name__)
+
+@app.route('/')
+def home_page(): 
+    return render_template("index.html")
 
 class Control:
     """Runs bias simulations based on "Male-Female Differences: A Computer
@@ -58,6 +66,7 @@ class Control:
 
 
 if __name__ == "__main__": 
+    app.run()
     control = Control()
     control.print_header()
     control.run_simulations()
