@@ -61,7 +61,6 @@ class Simulation:
             for employee in employee_list:
                 if employee.gender == self.bias_towards_gender:
                     employee.rating = random.randint(0, 100 + int(self.promotion_bias))
-                    print self.promotion_bias
                 else:
                     employee.rating = random.randint(0, 100)
         for level in range(self.num_levels):

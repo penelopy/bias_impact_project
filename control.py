@@ -16,13 +16,19 @@ def home_page():
     control.run_simulations()
     results = control.fetch_results()
     results=json.dumps(results)
-    return render_template("index.html", results=results)
+    return render_template("index.html", results=results, gender=gender, bias=bias)
 
 @app.route('/bias', methods=['POST'])
 def fetch_bias_amount():
-    bias = request.form.getlist('bias')[0]
-    # gender = request.form.getlist('gender')
-    gender = 'male'
+    if request.form.getlist('bias') ==[]:
+        bias = 0
+    else:
+        bias = request.form.getlist('bias')[0]
+
+    if request.form.getlist('gender') == []:  
+        gender = 'male'  
+    else: 
+        gender = request.form.getlist('gender')[0]
 
     control = Control(gender, bias)
     control.run_simulations()
@@ -36,12 +42,12 @@ class Control:
     Simulation" from the Feb, 1996 issue of American Psychologist.
     http://www.ruf.rice.edu/~lane/papers/male_female.pdf"""
 
-    def __init__(self, bias_towards_gender, promotion_bias = 10):
+    def __init__(self, bias_towards_gender, promotion_bias):
         self.bias_towards_gender = bias_towards_gender
         self.promotion_bias = promotion_bias
-        self.num_simulations = 1
+        self.num_simulations = 20
         self.attrition = 15
-        self.iterations_per_simulation = 1
+        self.iterations_per_simulation = 15
         self.num_positions_list = [500, 350, 200, 150, 100, 75, 40, 10]
         self.num_levels = len(self.num_positions_list)
 
@@ -73,8 +79,8 @@ class Control:
             women_median = women_averager.get_median()
             women_percentage = 100 * women_averager.get_total() / total_employees
 
-            men_data.append(men_avg)
-            women_data.append(women_avg)
+            men_data.append(men_percentage)
+            women_data.append(women_percentage)
 
         return [men_data, women_data]
 

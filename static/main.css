@@ -29,12 +29,16 @@
       margin-right: auto;
       padding-left: 450px;
   }
-  .submit-buttons {
-    margin-left: 300px;
+
+  .row {
+    display: block;
+    margin-left: 280px;
+    margin-bottom: 40px;
   }
-  .gender-buttons {
-    margin-left: 300px;
-    padding-top: 10px;
+  .status {
+    margin-left: 280px;
+    font-size: 20px;
+    color: #111;
   }
    .myButton {
     margin-right: 10px;

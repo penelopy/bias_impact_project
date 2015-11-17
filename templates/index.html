@@ -37,31 +37,37 @@
     </div>
   </div>
 </nav>
-<!-- Container (The Image Section) -->
+<!-- (The Image Section) -->
 <div class="main-image">
   <img src="../static/img/restroom-male-female.png" width="400" height="200"></img>
 </div>
 
-<!-- Container (The Concept Section) -->
+<!-- (The Concept Section) -->
 <div class="container text-center">
   <h3>THE CONCEPT</h3>
-  <p>What is the impact of gender bias? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>What is the impact of gender bias?</p> 
+  <p>Can a small amount of bias have a measurable impact?</p>
+  <p>This computer simulation is based on research conducted by Rice University </p> 
+  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
 
-<div class="submit-buttons">
-  <button class="myButton" type="submit" name="10%" data-bias="10"> 10% bias </button>
-  <button class="myButton" type="submit" name="5%" data-bias="5"> 5% bias </button>
-  <button class="myButton" type="submit" name="1%" data-bias="1"> 1% bias </button>
-  <button class="myButton" type="submit" name="0%" data-bias="0"> 0% bias </button>
+<!-- (Buttons) -->
+<div class="row">
+  <button class="myButton btn btn-primary-outline" data-toggle="button" data-bias="10"> 10% bias </button>
+  <button class="myButton btn btn-primary-outline" data-toggle="button"  data-bias="5"> 5% bias </button>
+  <button class="myButton btn btn-primary-outline" data-toggle="button"  data-bias="1"> 1% bias </button>
+  <button class="myButton btn btn-primary-outline" data-toggle="button"  data-bias="0"> 0% bias </button>
+
+  <button class="myButton btn btn-primary-outline" data-toggle="button" data-gender="men"> Bias towards Men </button>
+  <button class="myButton btn btn-primary-outline" data-toggle="button" data-gender="women"> Bias towards Women </button>
 </div>
 
-<div class="gender-buttons">
-  <button class="myButton" type="submit" name="male" data-gender="male"> Bias towards Men </button>
-  <button class="myButton" type="submit" name="female" data-gender="female"> Bias towards Women </button>
-</div>
 
-<!-- Container (Histogram) -->
-<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
+
+<!-- (Histogram) -->
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
 </div>
 
 <!-- Footer -->
@@ -72,32 +78,7 @@
   <p>Contribute to this project by aute irure dolor in reprehenderit in voluptate velit esse</p> 
 </footer>
 
-// <script>
-// $(document).ready(function(){
-//   // Initialize Tooltip
-//   $('[data-toggle="tooltip"]').tooltip(); 
-  
-//   // Add smooth scrolling to all links in navbar + footer link
-//   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
-//     // Prevent default anchor click behavior
-//     event.preventDefault();
-
-//     // Store hash
-//     var hash = this.hash;
-
-//     // Using jQuery's animate() method to add smooth page scroll
-//     // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-//     $('html, body').animate({
-//       scrollTop: $(hash).offset().top
-//     }, 900, function(){
-   
-//       // Add hash (#) to URL when done scrolling (default click behavior)
-//       window.location.hash = hash;
-//     });
-//   });
-// })
-// </script>
 
 
 </body>
