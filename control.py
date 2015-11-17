@@ -10,16 +10,13 @@ app.debug = True
 
 @app.route('/')
 def home_page():
-    # for gender in ["male", "female"]:
-      # control = Control(gender)
-      # control.run_simulations()
-      # results = control.fetch_results()
-
-    # hard code from here until we figure out json dumps issue
-    return render_template("index.html",
-        male_json=[9.01, 29.12, 38.71, 48.66, 72.49, 97.75, 169.88, 247.58],
-        female_json=[.99, 10.88, 36.29, 51.34, 77.51, 102.25, 180.12, 252.42],
-    )
+    gender = 'male'
+    bias = "10"
+    control = Control(gender, bias)
+    control.run_simulations()
+    results = control.fetch_results()
+    results=json.dumps(results)
+    return render_template("index.html", results=results)
 
 @app.route('/bias', methods=['POST'])
 def fetch_bias_amount():
@@ -56,14 +53,6 @@ class Control:
                 self.promotion_bias, self.num_positions_list, self.bias_towards_gender)
             simulation.run()
             self.results.append(simulation.get_result())
-
-    def print_header(self):
-        """print header with var info"""
-        print("Running {} simulations.".format(self.num_simulations))
-        print("{0:2}% bias for {1}".format(self.promotion_bias, self.bias_towards_gender))
-        print("{0:2} promotion cycles".format(self.iterations_per_simulation))
-        print("{0:2}% attrition rate".format(self.attrition))
-        print
 
     def fetch_results(self):
         men_data = []
