@@ -12,6 +12,10 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../static/histogram.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -45,16 +49,19 @@
 </div>
 
 <div class="submit-buttons">
-  <button type="submit" name="10%"> 10% bias </button>
-  <button type="submit" name="5%"> 5% bias </button>
-  <button type="submit" name="1%"> 1% bias </button>
+  <button class="button" type="submit" name="10%" data-bias="10"> 10% bias </button>
+  <button class="button" type="submit" name="5%" data-bias="5"> 5% bias </button>
+  <button class="button" type="submit" name="1%" data-bias="1"> 1% bias </button>
+</div>
+
+<div class="gender-buttons">
+  <button type="submit" name="male" data-gender="male"> Bias towards Men </button>
+  <button type="submit" name="female" data-gender="female"> Bias towards Women </button>
 </div>
 
 <!-- Container (Histogram) -->
 <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
-
 </div>
-
 
 <!-- Footer -->
 <footer class="text-center">
@@ -64,34 +71,33 @@
   <p>Contribute to this project by aute irure dolor in reprehenderit in voluptate velit esse</p> 
 </footer>
 
-<script>
-$(document).ready(function(){
-  // Initialize Tooltip
-  $('[data-toggle="tooltip"]').tooltip(); 
+// <script>
+// $(document).ready(function(){
+//   // Initialize Tooltip
+//   $('[data-toggle="tooltip"]').tooltip(); 
   
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+//   // Add smooth scrolling to all links in navbar + footer link
+//   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
-    // Prevent default anchor click behavior
-    event.preventDefault();
+//     // Prevent default anchor click behavior
+//     event.preventDefault();
 
-    // Store hash
-    var hash = this.hash;
+//     // Store hash
+//     var hash = this.hash;
 
-    // Using jQuery's animate() method to add smooth page scroll
-    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-    $('html, body').animate({
-      scrollTop: $(hash).offset().top
-    }, 900, function(){
+//     // Using jQuery's animate() method to add smooth page scroll
+//     // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+//     $('html, body').animate({
+//       scrollTop: $(hash).offset().top
+//     }, 900, function(){
    
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-    });
-  });
-})
-</script>
-<script src="../static/simulator.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+//       // Add hash (#) to URL when done scrolling (default click behavior)
+//       window.location.hash = hash;
+//     });
+//   });
+// })
+// </script>
+
+
 </body>
 </html>

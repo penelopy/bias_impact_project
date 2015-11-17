@@ -1,25 +1,50 @@
-from flask import Flask
+from flask import Flask, render_template, request, jsonify
+import json
 
 from averager import Averager
 from simulation import Simulation
 
 app = Flask(__name__)
+app.debug = True
+# app.config['DEBUG'] = True
 
 @app.route('/')
-def home_page(): 
-    return render_template("index.html")
+def home_page():
+    # for gender in ["male", "female"]:
+      # control = Control(gender)
+      # control.run_simulations()
+      # results = control.fetch_results()
+
+    # hard code from here until we figure out json dumps issue
+    return render_template("index.html",
+        male_json=[9.01, 29.12, 38.71, 48.66, 72.49, 97.75, 169.88, 247.58],
+        female_json=[.99, 10.88, 36.29, 51.34, 77.51, 102.25, 180.12, 252.42],
+    )
+
+@app.route('/bias', methods=['POST'])
+def fetch_bias_amount():
+    bias = request.form.getlist('bias')[0]
+    # gender = request.form.getlist('gender')
+    gender = 'male'
+
+    control = Control(gender, bias)
+    control.run_simulations()
+    results = control.fetch_results()
+    results=json.dumps(results)
+
+    return results
 
 class Control:
     """Runs bias simulations based on "Male-Female Differences: A Computer
     Simulation" from the Feb, 1996 issue of American Psychologist.
     http://www.ruf.rice.edu/~lane/papers/male_female.pdf"""
 
-    def __init__(self, bias_towards_gender, promotion_bias = 1):
+    def __init__(self, bias_towards_gender, promotion_bias = 10):
         self.bias_towards_gender = bias_towards_gender
         self.promotion_bias = promotion_bias
-        self.num_simulations = 100
+        self.num_simulations = 1
         self.attrition = 15
-        self.iterations_per_simulation = 12
+        self.iterations_per_simulation = 1
         self.num_positions_list = [500, 350, 200, 150, 100, 75, 40, 10]
         self.num_levels = len(self.num_positions_list)
 
@@ -40,11 +65,9 @@ class Control:
         print("{0:2}% attrition rate".format(self.attrition))
         print
 
-    def print_summary(self):
-        """Print summary"""
-        print("Level\tMen\t\t\tWomen")
-        print("\tavg\tmedian\t%\tavg\tmedian\t%")
-        print("-----\t-----------------\t-----------------")
+    def fetch_results(self):
+        men_data = []
+        women_data = []
 
         for level in range(0, self.num_levels):
             men_averager = Averager()
@@ -61,15 +84,11 @@ class Control:
             women_median = women_averager.get_median()
             women_percentage = 100 * women_averager.get_total() / total_employees
 
-            summary = "%d\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f" %(level + 1, men_avg, men_median, men_percentage, women_avg,
-                    women_median, women_percentage)
-            print summary
+            men_data.append(men_avg)
+            women_data.append(women_avg)
+
+        return [men_data, women_data]
 
 
 if __name__ == "__main__": 
     app.run()
-    for gender in ["male", "female"]:
-      control = Control(gender)
-      control.print_header()
-      control.run_simulations()
-      control.print_summary()

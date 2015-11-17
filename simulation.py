@@ -60,7 +60,8 @@ class Simulation:
         for employee_list in self.levels_to_employees.values(): 
             for employee in employee_list:
                 if employee.gender == self.bias_towards_gender:
-                    employee.rating = random.randint(0, 100 + self.promotion_bias)
+                    employee.rating = random.randint(0, 100 + int(self.promotion_bias))
+                    print self.promotion_bias
                 else:
                     employee.rating = random.randint(0, 100)
         for level in range(self.num_levels):
@@ -119,10 +120,5 @@ class Simulation:
                     num_men[level] += 1
                 else:
                     num_women[level] += 1
-            # print "-------"
-            # print "level", level
-            # print "num men", num_men
-            # print "num women", num_women
-            # print "total emp", len(employee_list)
 
         return Result(num_men, num_women)
