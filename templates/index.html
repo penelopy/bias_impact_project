@@ -1,85 +1,99 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Gender Bias Simulator</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="../static/main.css" rel="stylesheet">
+  <head>
+    <title>Gender Bias Simulator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="../static/main.css" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="../static/histogram.js"></script>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../static/histogram.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  </head>
 
-</head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#myPage">Gender Bias Simulator</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/penelopy/bias_impact_project">CONTRIBUTE</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#myPage">Gender Bias Simulator</a>
+    <!-- (The Image Section) -->
+    <div class="main-image">
+      <img src="../static/img/gender.png" width="340" height="205"></img>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#contact">CONTRIBUTE</a></li>
-      </ul>
+
+    <!-- (The Concept Section) -->
+    <div class="container text-center">
+      <h3>THE CONCEPT</h3>
+      <p>What is the impact of gender bias?</p> 
+      <p>Can a small amount of bias during job promotions have a measurable impact on a company's hierarchy?</p>
+      <p>This computer simulation is based on research paper titled <a href="http://www.ruf.rice.edu/~lane/papers/male_female.pdf">"Male-Female Differences: A Computer Simulation"</a> </p> 
     </div>
-  </div>
-</nav>
-<!-- (The Image Section) -->
-<div class="main-image">
-  <img src="../static/img/restroom-male-female.png" width="400" height="200"></img>
-</div>
 
-<!-- (The Concept Section) -->
-<div class="container text-center">
-  <h3>THE CONCEPT</h3>
-  <p>What is the impact of gender bias?</p> 
-  <p>Can a small amount of bias have a measurable impact?</p>
-  <p>This computer simulation is based on research conducted by Rice University </p> 
-  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
+    <div class="detail-summary">
+      <p>BASIS FOR THIS SIMULATION</p>
+      <p> Each employee level begins with equal number of men and women.</p>
+      <p> At each promotional period 15% of employees at all levels are randomly removed. (15% attrition rate)</p>
+      <p> 12 promotional cycles (2 per year for 6 years) </p>
+      <p> Promotion scores are randomly assigned from 1-100, or 1-101 for the 'favored' gender. </p> 
+    </div>
 
-<!-- (Buttons) -->
-<div class="row">
-  <button class="myButton btn btn-primary-outline" data-toggle="button" data-bias="10"> 10% bias </button>
-  <button class="myButton btn btn-primary-outline" data-toggle="button"  data-bias="5"> 5% bias </button>
-  <button class="myButton btn btn-primary-outline" data-toggle="button"  data-bias="1"> 1% bias </button>
-  <button class="myButton btn btn-primary-outline" data-toggle="button"  data-bias="0"> 0% bias </button>
+    <div class="row">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="myButton btn btn-primary active">
+          <input type="radio" name="gender" value="male" onchange="dataHasChanged()" checked="checked"> Male
+        </label>
+        <label class="myButton btn btn-primary">
+          <input type="radio" name="gender" value="female" onchange="dataHasChanged()"> Female
+        </label>
+      </div>
+    </div>
 
-  <button class="myButton btn btn-primary-outline" data-toggle="button" data-gender="men"> Bias towards Men </button>
-  <button class="myButton btn btn-primary-outline" data-toggle="button" data-gender="women"> Bias towards Women </button>
-</div>
+    <div class="row">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="myButton btn btn-primary active">
+          <input type="radio" name="bias" value="10" onchange="dataHasChanged()" checked="checked"> 10% bias
+        </label>
+        <label class="myButton btn btn-primary">
+          <input type="radio" name="bias" value="5" onchange="dataHasChanged()"> 5% bias
+        </label>
+        <label class="myButton btn btn-primary">
+          <input type="radio" name="bias" value="1" onchange="dataHasChanged()"> 1% bias
+        </label>
+        <label class="myButton btn btn-primary">
+          <input type="radio" name="bias" value="0" onchange="dataHasChanged()"> 0% bias
+        </label>
+      </div>
+    </div>
 
+    <!-- (Histogram) -->
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  </body>
 
-
-<!-- (Histogram) -->
-
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-</div>
-
-<!-- Footer -->
-<footer class="text-center">
-  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br>
-  <p>Contribute to this project by aute irure dolor in reprehenderit in voluptate velit esse</p> 
-</footer>
-
-
-
-
-</body>
+  <!-- Footer -->
+  <footer class="text-center">
+    <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </a><br><br>
+    <p>Contribute to this project by aute irure dolor in reprehenderit in voluptate velit esse</p> 
+  </footer>
 </html>

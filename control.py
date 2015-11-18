@@ -6,7 +6,6 @@ from simulation import Simulation
 
 app = Flask(__name__)
 app.debug = True
-# app.config['DEBUG'] = True
 
 @app.route('/')
 def home_page():
@@ -20,15 +19,8 @@ def home_page():
 
 @app.route('/bias', methods=['POST'])
 def fetch_bias_amount():
-    if request.form.getlist('bias') ==[]:
-        bias = 0
-    else:
-        bias = request.form.getlist('bias')[0]
-
-    if request.form.getlist('gender') == []:  
-        gender = 'male'  
-    else: 
-        gender = request.form.getlist('gender')[0]
+    bias = request.form.getlist('bias')[0]
+    gender = request.form.getlist('gender')[0]
 
     control = Control(gender, bias)
     control.run_simulations()

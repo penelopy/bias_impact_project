@@ -28,6 +28,7 @@
       margin-left: auto;
       margin-right: auto;
       padding-left: 450px;
+      padding-bottom: 40px;
   }
 
   .row {
@@ -43,6 +44,10 @@
    .myButton {
     margin-right: 10px;
   }
+  .detail-summary {
+    margin-left: 280px;
+  }
+
   .bg-1 {
       background: #2d2d30;
       color: #bdbdbd;

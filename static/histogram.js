@@ -1,35 +1,33 @@
-$(function () {
-    $('.myButton').on("click",
-     function() {
-      bias = event.target.dataset.bias;
-      gender = event.target.dataset.gender;
-      $.post("/bias", {bias: bias, gender: gender}, myFunc);
-    });
-  });
+var dataHasChanged = function(){
+    bias = $("input[name=bias]:checked").val()
+    gender = $("input[name=gender]:checked").val()
+    $.post("/bias", {bias: bias, gender: gender}, renderGraph);
+};
 
-function myFunc(data){
+function renderGraph(data){
+  // Grab data
   parsed_data = $.parseJSON(data);
   var menDataset = parsed_data[0];
   var womenDataset = parsed_data[1]
 
-
-$('#container').highcharts({
+  // Render graph
+  $('#container').highcharts({
     chart: {
         type: 'column'
     },
     title: {
-        text: 'Bias Impact Simulation'
+        text: 'Gender Bias Simulator'
     },
     xAxis: {
         categories: [
-            'Level 8',
-            'Level 7',
-            'Level 6',
-            'Level 5',
-            'Level 4',
-            'Level 3',
+            'Level 1',
             'Level 2',
-            'Level 1'
+            'Level 3',
+            'Level 3',
+            'Level 5',
+            'Level 6',
+            'Level 7',
+            'Level 8'
         ],
         crosshair: true
     },
@@ -60,9 +58,7 @@ $('#container').highcharts({
         name: 'Women',
         data: womenDataset
     }]
-});
+  });
 }
 
-$.post("/bias", {bias: 10, gender: 'male'}, myFunc);
-
-
+$.post("/bias", {bias: 10, gender: 'male'}, renderGraph);

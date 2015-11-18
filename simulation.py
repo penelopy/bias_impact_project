@@ -112,7 +112,6 @@ class Simulation:
         num_women = [0] * self.num_levels
 
         for level in range(self.num_levels):
-            # for level, employees in self.levels_to_employees.items():
             employee_list = self.levels_to_employees.get(level)
             for employee in employee_list:
                 if employee.gender == "male": 
