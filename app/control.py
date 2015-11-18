@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import json
 
+from app import app
 from averager import Averager
 from simulation import Simulation
 
