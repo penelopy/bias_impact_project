@@ -1,5 +1,6 @@
 import math
 import random
+import time
 
 from employee import Employee
 from result import Result
@@ -48,7 +49,7 @@ class Simulation:
 
     def run(self):
         """run simulation"""
-        for i in range(0, self.iterations_per_simulation):
+        for x in xrange(0, self.iterations_per_simulation):
             self.talent_review()
             self.attrit()
             self.promote()
@@ -63,12 +64,6 @@ class Simulation:
                     employee.rating = random.randint(0, 100 + int(self.promotion_bias))
                 else:
                     employee.rating = random.randint(0, 100)
-        for level in range(self.num_levels):
-            # build up list of ratings for this level
-            ratings = []
-            employees = self.levels_to_employees.get(level)
-            for e in employees:
-                ratings.append(e.rating)
 
     def attrit(self):
         """Looks at each employee in dictionary and randomly retains employees
@@ -85,6 +80,7 @@ class Simulation:
     def promote(self):
         """Looks at each level, determines the number of promotions, adds and
         deletes employees to various levels"""
+        # start = time.clock()
         for i in range(self.num_levels - 1):
             prev_level = i
             candidates = self.levels_to_employees.get(prev_level)
@@ -92,7 +88,6 @@ class Simulation:
             targets = self.levels_to_employees.get(new_level)
 
             candidates.sort(key=lambda x: x.rating, reverse=True)
-
 
             num_candidates = len(candidates)
             open_positions = self.num_positions_list[new_level] - len(targets)
@@ -104,6 +99,7 @@ class Simulation:
             candidates = self.levels_to_employees.get(prev_level)
 
             targets = self.levels_to_employees.get(new_level)
+        # print time.clock() - start, "promote method time"
 
     def get_result(self):
         """Counts number of men and women at each level and saves totals to
@@ -113,6 +109,7 @@ class Simulation:
 
         for level in range(self.num_levels):
             employee_list = self.levels_to_employees.get(level)
+
             for employee in employee_list:
                 if employee.gender == "male": 
                     num_men[level] += 1

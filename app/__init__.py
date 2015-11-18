@@ -1,5 +1,5 @@
 
-froom flask import Flask
+# from flask import Flask
 
-app = Flask(__name__)
-from app import control
+# app = Flask(__name__)
+# from app import control

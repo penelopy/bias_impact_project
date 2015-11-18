@@ -2,29 +2,18 @@ class Averager:
 
 	def __init__(self):
 		self.numbers = []
+		self.total = 0
 
 	def add(self, n):
 		"""add number to numbers list"""
+		self.total += n
 		self.numbers.append(n)
 
 	def get_total(self):
 		"""sum numbers list"""
-		return sum(self.numbers)
+		return self.total
 
 	def get_average(self):
 		"""get average of numbers list"""
-		return sum(self.numbers) / float(len(self.numbers))
+		return self.total / float(len(self.numbers))
 
-	def get_median(self):
-		"""get median of numbers list"""
-		self.numbers.sort()
-
-		num_len = len(self.numbers)
-		if num_len == 0:
-			return 0
-		elif num_len == 1:
-			return self.numbers[0]
-		elif num_len % 2 == 0:
-			return (self.numbers[num_len / 2 - 1] + self.numbers[num_len / 2]) / 2.0
-		else:
-			return self.numbers[num_len / 2]

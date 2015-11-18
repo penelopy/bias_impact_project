@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import json
 
-from app import app
+# from app import app
 from averager import Averager
 from simulation import Simulation
 
@@ -10,7 +10,7 @@ app.debug = True
 
 @app.route('/')
 def home_page():
-    gender = 'male'
+    gender = 1
     bias = "10"
     control = Control(gender, bias)
     control.run_simulations()
@@ -47,7 +47,7 @@ class Control:
     def run_simulations(self):
         """Run NUM_SIMULATIONS simulations"""
         self.results = []
-        for i in range(self.num_simulations):
+        for x in xrange(self.num_simulations):
             simulation = Simulation(self.num_simulations, self.attrition, self.iterations_per_simulation, 
                 self.promotion_bias, self.num_positions_list, self.bias_towards_gender)
             simulation.run()
@@ -66,10 +66,8 @@ class Control:
 
             total_employees = men_averager.get_total() + women_averager.get_total()
             men_avg = men_averager.get_average()
-            men_median = men_averager.get_median()
             men_percentage = 100 * men_averager.get_total() / total_employees
             women_avg = women_averager.get_average()
-            women_median = women_averager.get_median()
             women_percentage = 100 * women_averager.get_total() / total_employees
 
             men_data.append(men_percentage)
@@ -80,3 +78,6 @@ class Control:
 
 if __name__ == "__main__": 
     app.run()
+    # control = Control('male', 10)
+    # control.run_simulations()
+    # results = control.fetch_results()
