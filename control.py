@@ -46,15 +46,19 @@ class Control:
     def run_simulations(self):
         """Run NUM_SIMULATIONS simulations"""
         self.results = []
+        append = self.results.append
         for x in xrange(self.num_simulations):
             simulation = Simulation(self.num_simulations, self.attrition, self.iterations_per_simulation, 
                 self.promotion_bias, self.num_positions_list, self.bias_towards_gender)
             simulation.run()
-            self.results.append(simulation.get_result())
+            append(simulation.get_result())
 
     def fetch_results(self):
         men_data = []
         women_data = []
+        men_append = men_data.append
+        women_append = women_data.append
+
 
         for level in range(0, self.num_levels):
             men_averager = Averager()
@@ -69,8 +73,8 @@ class Control:
             women_avg = women_averager.get_average()
             women_percentage = 100 * women_averager.get_total() / total_employees
 
-            men_data.append(men_percentage)
-            women_data.append(women_percentage)
+            men_append(men_percentage)
+            women_append(women_percentage)
 
         return [men_data, women_data]
 

@@ -38,8 +38,9 @@ class Simulation:
         for positions in self.num_positions_list:
             employee_list_at_level = self.levels_to_employees.get(level)
             if employee_list_at_level is not None:
+                append = employee_list_at_level.append
                 while len(employee_list_at_level) < positions:
-                    employee_list_at_level.append(Employee(next_gender))
+                    append(Employee(next_gender))
                     if next_gender == "female":
                         next_gender = "male"
                     else: 
@@ -72,8 +73,9 @@ class Simulation:
             updated_employee_list = [] #retained employees will be saved here
             employee_list_at_level = self.levels_to_employees.get(level)
             for employee in employee_list_at_level:
+                append = updated_employee_list.append
                 if random.randrange(0, 100) >= self.attrition:
-                    updated_employee_list.append(employee)
+                    append(employee)
 
             self.levels_to_employees[level] = updated_employee_list
 
