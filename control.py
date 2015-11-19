@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 import json
 
 from averager import Averager
@@ -37,7 +37,7 @@ class Control:
     def __init__(self, bias_towards_gender, promotion_bias):
         self.bias_towards_gender = bias_towards_gender
         self.promotion_bias = promotion_bias
-        self.num_simulations = 20
+        self.num_simulations = 50
         self.attrition = 15
         self.iterations_per_simulation = 15
         self.num_positions_list = [500, 350, 200, 150, 100, 75, 40, 10]

@@ -58,12 +58,18 @@ class Simulation:
     def talent_review(self):
         """Looks at each employee object in dictionary, checks gender and gives
         random performance rating"""
+        favored_gender_ratings = []
+        non_favored_gender_ratings = []
+        for x in xrange(0, self.iterations_per_simulation):
+            favored_gender_ratings.append(random.randint(0, 100 + int(self.promotion_bias)))
+            non_favored_gender_ratings.append(random.randint(0, 100))
+
         for employee_list in self.levels_to_employees.values(): 
             for employee in employee_list:
                 if employee.gender == self.bias_towards_gender:
-                    employee.rating = random.randint(0, 100 + int(self.promotion_bias))
+                    employee.rating = favored_gender_ratings.pop()
                 else:
-                    employee.rating = random.randint(0, 100)
+                    employee.rating = non_favored_gender_ratings.pop()
 
     def attrit(self):
         """Looks at each employee in dictionary and randomly retains employees
