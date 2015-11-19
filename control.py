@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import json
 
-# from app import app
 from averager import Averager
 from simulation import Simulation
 
@@ -77,7 +76,7 @@ class Control:
 
 
 if __name__ == "__main__": 
-    app.run()
-    # control = Control('male', 10)
-    # control.run_simulations()
-    # results = control.fetch_results()
+    # app.run()
+    control = Control('male', 10)
+    control.run_simulations()
+    results = control.fetch_results()

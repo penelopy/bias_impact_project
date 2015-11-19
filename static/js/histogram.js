@@ -17,7 +17,7 @@ function renderGraph(data){
         type: 'column'
     },
     title: {
-        text: 'Gender Bias Simulator'
+        text: 'Promotion Bias Simulator'
     },
     xAxis: {
         categories: [
@@ -70,7 +70,7 @@ function renderGraphTemplate(data){
         type: 'column'
     },
     title: {
-        text: 'Gender Bias Simulator'
+        text: 'Promotion Bias Simulator'
     },
     xAxis: {
         categories: [
