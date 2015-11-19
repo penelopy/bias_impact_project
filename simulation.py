@@ -37,8 +37,8 @@ class Simulation:
         level = 0
         for positions in self.num_positions_list:
             employee_list_at_level = self.levels_to_employees.get(level)
+            append = employee_list_at_level.append
             if employee_list_at_level is not None:
-                append = employee_list_at_level.append
                 while len(employee_list_at_level) < positions:
                     append(Employee(next_gender))
                     if next_gender == "female":
@@ -50,7 +50,7 @@ class Simulation:
 
     def run(self):
         """run simulation"""
-        for x in xrange(0, self.iterations_per_simulation):
+        for _ in xrange(0, self.iterations_per_simulation):
             self.talent_review()
             self.attrit()
             self.promote()
@@ -69,15 +69,17 @@ class Simulation:
     def attrit(self):
         """Looks at each employee in dictionary and randomly retains employees
         based on global attrition rate"""
-        for level in range(self.num_levels):
-            updated_employee_list = [] #retained employees will be saved here
-            employee_list_at_level = self.levels_to_employees.get(level)
-            for employee in employee_list_at_level:
-                append = updated_employee_list.append
-                if random.randrange(0, 100) >= self.attrition:
-                    append(employee)
 
-            self.levels_to_employees[level] = updated_employee_list
+        for level in range(self.num_levels):
+            # updated_employee_list = [] #retained employees will be saved here
+            employee_list_at_level = self.levels_to_employees.get(level)
+            # append = updated_employee_list.append
+            num_employees_at_level = len(employee_list_at_level)
+            num_employees_to_be_deleted = int(num_employees_at_level * (self.attrition/100))
+            indexed_employees_to_be_deleted = random.sample(range(num_employees_at_level), num_employees_to_be_deleted)
+            for i in indexed_employees_to_be_deleted: 
+                employee_list_at_level.pop(i)
+
 
     def promote(self):
         """Looks at each level, determines the number of promotions, adds and

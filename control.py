@@ -47,7 +47,7 @@ class Control:
         """Run NUM_SIMULATIONS simulations"""
         self.results = []
         append = self.results.append
-        for x in xrange(self.num_simulations):
+        for _ in xrange(self.num_simulations):
             simulation = Simulation(self.num_simulations, self.attrition, self.iterations_per_simulation, 
                 self.promotion_bias, self.num_positions_list, self.bias_towards_gender)
             simulation.run()
@@ -58,7 +58,6 @@ class Control:
         women_data = []
         men_append = men_data.append
         women_append = women_data.append
-
 
         for level in range(0, self.num_levels):
             men_averager = Averager()
@@ -80,7 +79,7 @@ class Control:
 
 
 if __name__ == "__main__": 
-    # app.run()
+    # app.run() 
     control = Control('male', 10)
     control.run_simulations()
     results = control.fetch_results()
