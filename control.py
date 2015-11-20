@@ -74,7 +74,8 @@ class Control:
 
             men_append(men_percentage)
             women_append(women_percentage)
-
+        print "men", men_data
+        print "women", women_data
         return [men_data, women_data]
 
 
@@ -101,7 +102,7 @@ class Control:
 
 
 if __name__ == "__main__": 
-    app.run() 
-    # control = Control('male', 10)
-    # control.run_simulations()
-    # results = control.fetch_results()
+    # app.run() 
+    control = Control('male', 10)
+    control.run_simulations()
+    results = control.fetch_results()
