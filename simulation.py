@@ -71,14 +71,16 @@ class Simulation:
         based on global attrition rate"""
 
         for level in range(self.num_levels):
-            # updated_employee_list = [] #retained employees will be saved here
+            retained_employees = []
             employee_list_at_level = self.levels_to_employees.get(level)
-            # append = updated_employee_list.append
             num_employees_at_level = len(employee_list_at_level)
-            num_employees_to_be_deleted = int(num_employees_at_level * (self.attrition/100))
+            num_employees_to_be_deleted = int(num_employees_at_level * (self.attrition/100.0))
             indexed_employees_to_be_deleted = random.sample(range(num_employees_at_level), num_employees_to_be_deleted)
-            for i in indexed_employees_to_be_deleted: 
-                employee_list_at_level.pop(i)
+
+            for i in range(num_employees_at_level):
+                if i not in indexed_employees_to_be_deleted:
+                    retained_employees.append(employee_list_at_level[i])
+            self.levels_to_employees[level] = retained_employees
 
 
     def promote(self):
