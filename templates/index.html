@@ -17,30 +17,38 @@
   </head>
 
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
-          </button>
-          <a class="navbar-brand" href="#myPage">Gender and Promotion Simulation</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/penelopy/bias_impact_project">OPEN SOURCE</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <!--<nav class="navbar navbar-default navbar-fixed-top">-->
+      <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header">-->
+          <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>                        -->
+          <!--</button>-->
+          <!--<a class="navbar-brand" href="#myPage">Gender and Promotion Simulation</a>-->
+        <!--</div>-->
+        <!--<div class="collapse navbar-collapse" id="myNavbar">-->
+          <!--<ul class="nav navbar-nav navbar-right">-->
+            <!--<li><a href="https://github.com/penelopy/bias_impact_project">OPEN SOURCE</a></li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</nav>-->
 
     <!-- (The Image Section) -->
-    <div class="main-image">
-      <img src="../static/img/teetertotter1.png"></img>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-text">
+              <h1 class="heading">Gender Bias</h1>
+              <h2 class="subheading">its cumulative effect <span class="small-break"></span>on careers and promotions</h2>
+            </div>
+            <!--<div class="main-image">-->
+              <img src="../static/img/teetertotter1.png"></img>
+            <!--</div>-->
+        </div>
     </div>
     <!-- (Histogram) -->
-    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="container" class="chart-container"></div>
 
     <div class="row">
       <div class="btn-group" data-toggle="buttons">
@@ -65,14 +73,10 @@
           <input type="radio" name="bias" value="1" onchange="dataHasChanged()"> 1% bias
         </label>
         <label class="myButton btn btn-primary">
-          <input type="radio" name="bias" value="0" onchange="dataHasChanged()"> 0% bias
+          <input type="radio" name="bias" value="0" onchange="dataHasChanged()"> No bias
         </label>
       </div>
     </div>
-
-
-
-
 
 
     <!-- (The Concept Section) -->

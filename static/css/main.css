@@ -1,93 +1,151 @@
-  body {
-      font: 400 15px/1.8 Lato, sans-serif;
-      color: #777;
-  }
-  h3, h4 {
-      margin: 10px 0 30px 0;
-      letter-spacing: 10px;      
-      font-size: 20px;
-      color: #111;
-  }
-  .container {
-      padding: 40px 120px;
-  }
 
-  .main-image {
-      background-color: #2d2d30;
-      padding-top: 80px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 450px;
-      padding-bottom: 40px;
-  }
-  .detail-summary .bullets {
-    padding-left: 5px;
-  }
-  .row {
-    display: block;
-    margin-left: 280px;
-    margin-bottom: 40px;
-  }
-   .myButton {
-    margin-right: 10px;
-  }
-  .detail-summary {
-    margin-left: 280px;
-    margin-bottom: 30px;
-  }
-  .btn {
-      padding: 10px 20px;
-      background-color: #333;
-      color: #f1f1f1;
-      border-radius: 0;
-      transition: .2s;
-  }
+body {
+ font: 400 15px/1.8 Lato, sans-serif;
+ color: #777;
+}
+ .header-text {
+   color: white;
+   float: left;
+   text-align: left;
+}
+ .subheading {
+   font-size: 20px;
+   line-height: 1.2em;
+}
+ h1 {
+ font-size: 63px;
+}
+ h3, h4 {
+   margin: 10px 0 30px 0;
+   letter-spacing: 10px;
+   font-size: 20px;
+   color: #111;
+}
+ .main-image img {
+   float: right;
+   margin-right: 15px;
+}
+ .container {
+   padding: 40px 120px;
+}
+ .chart-container {
+   min-width: 310px;
+   height: 400px;
+   margin: 0 auto;
+}
+ .header {
+   background-color: #2d2d30  ;
 
-  .btn.active {
-    background-color: #434848;
-  }
-  .nav-tabs li a {
-      color: #777;
-  }
-  .navbar {
-      font-family: Montserrat, sans-serif;
-      margin-bottom: 0;
-      background-color: #2d2d30;
-      border: 0;
-      font-size: 11px !important;
-      letter-spacing: 4px;
-      opacity: 0.9;
-  }
-  .navbar li a, .navbar .navbar-brand { 
-      color: #d5d5d5 !important;
-  }
-  .navbar-nav li a:hover {
-      color: #fff !important;
-  }
-  .navbar-nav li.active a {
-      color: #fff !important;
-      background-color: #29292c !important;
-  }
-  .navbar-default .navbar-toggle {
-      border-color: transparent;
-  }
-  .open .dropdown-toggle {
-      color: #fff;
-      background-color: #555 !important;
-  }
-  footer {
-      background-color: #2d2d30;
-      color: #f5f5f5;
-      padding: 32px;
-  }
-  footer a {
-      color: #f5f5f5;
-  }
-  footer a:hover {
-      color: #777;
-      text-decoration: none;
-  }  
-  .form-control {
-      border-radius: 0;
-  }
+}
+ .header-content {
+   min-height: 215px;
+   text-align: center;
+   padding: 20px 40px;
+   width: 795px;
+   margin: 0 auto;
 
+
+}
+ .header-content img {
+ width: 175px;
+}
+ .detail-summary .bullets {
+   padding-left: 5px;
+}
+ .row {
+   display: block;
+   margin-left: 280px;
+   margin-bottom: 40px;
+}
+ .myButton {
+   margin-right: 10px;
+}
+ .detail-summary {
+   margin-left: 280px;
+   margin-bottom: 30px;
+}
+ .btn {
+   padding: 10px 20px;
+   background-color: #333;
+   color: #f1f1f1  ;
+   border-radius: 0;
+   transition: .2s;
+}
+
+ .btn.active {
+   background-color: #434848  ;
+}
+ .nav-tabs li a {
+   color: #777;
+}
+ .navbar {
+   font-family: Montserrat, sans-serif;
+   margin-bottom: 0;
+   background-color: #2d2d30  ;
+   border: 0;
+   font-size: 11px !important;
+   letter-spacing: 4px;
+   opacity: 0.7;
+}
+ .navbar li a, .navbar .navbar-brand {
+   color: #d5d5d5   !important;
+}
+ .navbar-nav li a:hover {
+   color: #fff !important;
+}
+ .navbar-nav li.active a {
+   color: #fff !important;
+   background-color: #29292c   !important;
+}
+ .navbar-default .navbar-toggle {
+   border-color: transparent;
+}
+ .open .dropdown-toggle {
+   color: #fff;
+   background-color: #555 !important;
+}
+ footer {
+   background-color: #2d2d30  ;
+   color: #f5f5f5  ;
+   padding: 32px;
+}
+ footer a {
+   color: #f5f5f5  ;
+}
+ footer a:hover {
+   color: #777;
+   text-decoration: none;
+}
+ .form-control {
+   border-radius: 0;
+}
+
+/* LARGE PHONE SIZE*/
+@media (max-width: 48em) {
+    h1 {
+     font-size: 30px;
+    }
+    .subheading {
+     font-size: 17px;
+    }
+    .small-break {
+     display: block;
+    }
+    .header-content {
+     padding: 10px 20px;
+     width: 475px;
+     min-height: 140px;
+
+    }
+    .header-content img {
+    width: 125px;
+    }
+}
+
+/* SMALL PHONE SIZE */
+@media (max-width: 30em) {
+}
+
+/* DESKTOP SIZE */
+@media (min-width: 64em) {
+}
