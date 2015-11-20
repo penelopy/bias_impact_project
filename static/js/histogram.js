@@ -54,11 +54,10 @@ function renderGraph(data){
         }
     },
     series: [{
-        name: 'Men',
-        data: menDataset 
-    }, {
         name: 'Women',
         data: womenDataset
+    }, {name: 'Men',
+        data: menDataset 
     }]
   });
 }

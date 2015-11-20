@@ -26,7 +26,8 @@ body {
    margin-right: 15px;
 }
  .container {
-   padding: 40px 120px;
+   margin-left: 270px;
+   margin-bottom: 20px;
 }
  .chart-container {
    min-width: 310px;
@@ -49,8 +50,8 @@ body {
  .header-content img {
  width: 175px;
 }
- .detail-summary .bullets {
-   padding-left: 5px;
+ .bullets {
+   margin-left: 20px;
 }
  .row {
    display: block;

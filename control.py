@@ -9,7 +9,7 @@ app.debug = True
 
 @app.route('/')
 def home_page():
-    gender = 1
+    gender = "men"
     bias = "10"
     control = Control(gender, bias)
     control.run_simulations()
@@ -78,8 +78,30 @@ class Control:
         return [men_data, women_data]
 
 
+#considering eliminating class and refactoring
+# class Averager:
+
+#     def __init__(self):
+#         self.numbers = []
+#         self.total = 0
+
+#     def add(self, n):
+#         """add number to numbers list"""
+#         self.total += n
+#         self.numbers.append(n)
+
+#     def get_total(self):
+#         """sum numbers list"""
+#         return self.total
+
+#     def get_average(self):
+#         """get average of numbers list"""
+#         return self.total / float(len(self.numbers))
+
+
+
 if __name__ == "__main__": 
-    # app.run() 
-    control = Control('male', 10)
-    control.run_simulations()
-    results = control.fetch_results()
+    app.run() 
+    # control = Control('male', 10)
+    # control.run_simulations()
+    # results = control.fetch_results()
