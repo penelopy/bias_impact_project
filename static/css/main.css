@@ -16,8 +16,8 @@ body {
  font-size: 63px;
 }
  h3, h4 {
-   margin: 10px 0 30px 0;
-   letter-spacing: 10px;
+   margin: 10px 0 15px 0;
+   letter-spacing: 6px;
    font-size: 20px;
    color: #111;
 }
@@ -28,15 +28,15 @@ body {
  .container {
    margin-left: 270px;
    margin-bottom: 20px;
+   margin-right: 200px;
 }
  .chart-container {
    min-width: 310px;
    height: 400px;
-   margin: 0 auto;
+   margin-bottom: 10px;
 }
  .header {
    background-color: #2d2d30  ;
-
 }
  .header-content {
    min-height: 215px;
@@ -44,8 +44,6 @@ body {
    padding: 20px 40px;
    width: 795px;
    margin: 0 auto;
-
-
 }
  .header-content img {
  width: 175px;
@@ -67,14 +65,10 @@ body {
 }
  .btn {
    padding: 10px 20px;
-   background-color: #333;
+   background-color: #808080;
    color: #f1f1f1  ;
    border-radius: 0;
    transition: .2s;
-}
-
- .btn.active {
-   background-color: #434848  ;
 }
  .nav-tabs li a {
    color: #777;
