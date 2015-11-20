@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="static/css/main.css" >
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="/static/js/histogram.js"></script>
@@ -40,27 +39,8 @@
     <div class="main-image">
       <img src="../static/img/teetertotter1.png"></img>
     </div>
-
-    <!-- (The Concept Section) -->
-    <div class="container text-center">
-      <h3>THE CONCEPT</h3>
-      <p>What is the impact of bias in job promotions?</p> 
-      <p>Can a small amount of gender bias have a measurable impact on a company's hierarchy?</p>
-      <p>This simulation was inspired by <a href="http://www.ruf.rice.edu/~lane/papers/male_female.pdf">"Male-Female Differences: A Computer Simulation"</a> and illustrates the impact of bias on a <a href="#" data-toggle="tooltip" title="We realize that gender is not binary and that other factors such as hiring bias and firing bias also have an impact." >simplified</a> dataset.</p> 
-    </div>
-
-
-
-
-    <div class="detail-summary">
-      <p><strong>BASIS FOR THIS SIMULATION</strong></p>
-      <p class="bullets"> * Level 1 is the lowest employee level. Top scoring employees are promoted to open positions in the next level.</p>
-      <p class="bullets"> * Each employee level begins with equal number of men and women.</p>
-      <p class="bullets"> * At each promotional period 15% of employees at all levels are randomly removed. (15% attrition rate)</p>
-      <p class="bullets"> * 12 promotional cycles (2 per year for 6 years) </p>
-      <p class="bullets"> * Promotion scores are randomly assigned from 1-100, or 1-100 + bias amount for the 'favored' gender. </p> 
-      <p class="bullets"> <strong>Note:</strong> This simulation uses random selection for attrition and promotional scores. So the output will have a small variance.</p>
-    </div>
+    <!-- (Histogram) -->
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
     <div class="row">
       <div class="btn-group" data-toggle="buttons">
@@ -90,8 +70,33 @@
       </div>
     </div>
 
-    <!-- (Histogram) -->
-    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+
+
+
+    <!-- (The Concept Section) -->
+    <div class="container text-center">
+      <h3>THE CONCEPT</h3>
+      <p>What is the impact of bias in job promotions?</p>
+      <p>Can a small amount of gender bias have a measurable impact on a company's hierarchy?</p>
+      <p>This simulation was inspired by <a href="http://www.ruf.rice.edu/~lane/papers/male_female.pdf">"Male-Female Differences: A Computer Simulation"</a> and illustrates the impact of bias on a <a href="#" data-toggle="tooltip" title="We realize that gender is not binary and that other factors such as hiring bias and firing bias also have an impact." >simplified</a> dataset.</p>
+    </div>
+
+
+
+
+    <div class="detail-summary">
+      <p><strong>BASIS FOR THIS SIMULATION</strong></p>
+      <p class="bullets"> * Level 1 is the lowest employee level. Top scoring employees are promoted to open positions in the next level.</p>
+      <p class="bullets"> * Each employee level begins with equal number of men and women.</p>
+      <p class="bullets"> * At each promotional period 15% of employees at all levels are randomly removed. (15% attrition rate)</p>
+      <p class="bullets"> * 12 promotional cycles (2 per year for 6 years) </p>
+      <p class="bullets"> * Promotion scores are randomly assigned from 1-100, or 1-100 + bias amount for the 'favored' gender. </p>
+      <p class="bullets"> <strong>Note:</strong> This simulation uses random selection for attrition and promotional scores. So the output will have a small variance.</p>
+    </div>
+
+
   </body>
 
   <!-- Footer -->
