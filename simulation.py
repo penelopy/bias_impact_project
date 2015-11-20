@@ -1,6 +1,7 @@
 import math
-import random
+# import random
 import time
+from numpy import random
 
 from employee import Employee
 from result import Result
@@ -59,10 +60,11 @@ class Simulation:
     def talent_review(self):
         """Looks at each employee object in dictionary, checks gender and gives
         random performance rating"""
+        bias = 100 + self.promotion_bias
         for employee_list in self.levels_to_employees.values(): 
             for employee in employee_list:
                 if employee.gender == self.bias_towards_gender:
-                    employee.rating = random.randint(0, 100 + int(self.promotion_bias))
+                    employee.rating = random.randint(0, bias) 
                 else:
                     employee.rating = random.randint(0, 100)
 
@@ -71,16 +73,54 @@ class Simulation:
         based on global attrition rate"""
 
         for level in range(self.num_levels):
-            retained_employees = []
+            
             employee_list_at_level = self.levels_to_employees.get(level)
             num_employees_at_level = len(employee_list_at_level)
-            num_employees_to_be_deleted = int(num_employees_at_level * (self.attrition/100.0))
-            indexed_employees_to_be_deleted = random.sample(range(num_employees_at_level), num_employees_to_be_deleted)
+            num_employees_to_retain = int(num_employees_at_level * ((100 - self.attrition)/100.0))
+            indices_to_retain = random.choice(range(num_employees_at_level), num_employees_to_retain)
+            retained_employees = []
+            for i in indices_to_retain: 
+                retained_employees.append(employee_list_at_level[i])
 
-            for i in range(num_employees_at_level):
-                if i not in indexed_employees_to_be_deleted:
-                    retained_employees.append(employee_list_at_level[i])
             self.levels_to_employees[level] = retained_employees
+
+            # indexed_employees_to_be_deleted = random.sample(num_employees_to_be_deleted)
+
+            # for i in range(num_employees_at_level):
+            #     if i not in indexed_employees_to_be_deleted:
+            #         retained_employees.append(employee_list_at_level[i])
+            # self.levels_to_employees[level] = retained_employees
+
+
+
+        # for level in range(self.num_levels):
+        #     retained_employees = []
+        #     employee_list_at_level = self.levels_to_employees.get(level)
+        #     num_employees_at_level = len(employee_list_at_level)
+        #     num_employees_to_be_deleted = int(num_employees_at_level * (self.attrition/100.0))
+        #     indexed_employees_to_be_deleted = random.sample(num_employees_to_be_deleted)
+
+        #     for i in range(num_employees_at_level):
+        #         if i not in indexed_employees_to_be_deleted:
+        #             retained_employees.append(employee_list_at_level[i])
+        #     self.levels_to_employees[level] = retained_employees
+
+
+
+
+
+    # def attrit(self):
+    #     """Looks at each employee in dictionary and randomly retains employees
+    #     based on global attrition rate"""
+    #     for level in range(self.num_levels):
+    #         updated_employee_list = [] #retained employees will be saved here
+    #         employee_list_at_level = self.levels_to_employees.get(level)
+    #         for employee in employee_list_at_level:
+    #             if random.randrange(0, 100) >= self.attrition:
+    #                 updated_employee_list.append(employee)
+
+    #         self.levels_to_employees[level] = updated_employee_list
+
 
 
     def promote(self):
@@ -90,6 +130,7 @@ class Simulation:
         for i in range(self.num_levels - 1):
             prev_level = i
             candidates = self.levels_to_employees.get(prev_level)
+            # print candidates[0].rating
             new_level = i + 1
             targets = self.levels_to_employees.get(new_level)
 

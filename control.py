@@ -36,7 +36,7 @@ class Control:
 
     def __init__(self, bias_towards_gender, promotion_bias):
         self.bias_towards_gender = bias_towards_gender
-        self.promotion_bias = promotion_bias
+        self.promotion_bias = int(promotion_bias)
         self.num_simulations = 50
         self.attrition = 15
         self.iterations_per_simulation = 15
