@@ -100,7 +100,7 @@ class Simulation:
             candidates_to_promote = candidates[:num_promotions]
 
             self.levels_to_employees[prev_level] = candidates[num_promotions:]
-            self.levels_to_employees[new_level] = targets + candidates[:num_promotions]
+            self.levels_to_employees[new_level] = targets + candidates_to_promote
             candidates = self.levels_to_employees.get(prev_level)
 
             targets = self.levels_to_employees.get(new_level)
