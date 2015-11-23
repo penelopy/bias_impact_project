@@ -24,6 +24,10 @@ body {
 .btn.ten-bias {
     background-color: rgba(255, 0, 0, 0.7);
 }
+.btn-group {
+    text-align: center;
+    min-height: 60px;
+}
  .header-text {
    color: white;
    float: left;
@@ -78,16 +82,13 @@ body {
  .header-content img {
  width: 175px;
 }
+.btn {
+margin-right: 10px;
+}
  .bullets {
    margin-left: 20px;
 }
- .row {
-    text-align: center;
-   margin-bottom: 40px;
-}
- .myButton {
-   margin-right: 10px;
-}
+
  .detail-summary {
    margin-left: 280px;
    margin-bottom: 30px;
@@ -193,11 +194,21 @@ body {
         font-size: 14px;
         margin-top: 0;
     }
+    .btn-group {
+        display: block;
+    }
     .chart-container {
         margin: 10px 10px 10px 0;
     }
     .background-text {
         width: 285px;
+    }
+    .btn {
+      display: block;
+      margin-right: 0;
+    }
+    .btn-group {
+      margin-top: 10px;
     }
 }
 
