@@ -143,5 +143,5 @@ if __name__ == "__main__":
     # app.run() 
     control = Control('male', 10)
     control.run_simulations()
-    ; results = control.fetch_results()
+    results = control.fetch_results()
     summary = control.print_summary()
