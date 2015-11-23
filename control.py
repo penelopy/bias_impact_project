@@ -36,7 +36,7 @@ class Control:
     def __init__(self, bias_towards_gender, promotion_bias):
         self.bias_towards_gender = bias_towards_gender
         self.promotion_bias = int(promotion_bias)
-        self.num_simulations = 50
+        self.num_simulations = 5
         self.attrition = 15
         self.iterations_per_simulation = 15
         self.num_positions_list = [500, 350, 200, 150, 100, 75, 40, 10]
@@ -59,7 +59,6 @@ class Control:
         men_append = men_data.append 
         women_append = women_data.append
 
-
         for level in range(0, self.num_levels):
             men_total = 0
             women_total = 0
@@ -73,15 +72,13 @@ class Control:
 
             men_append(men_percentage)
             women_append(women_percentage)
-        print "men", men_data
-        print "women", women_data
         return [men_data, women_data]
 
     def print_summary(self):
         """Print summary"""
-        print("Level\tMen\t\t\tWomen")
-        print("\tpercent\t%\tpercent\\t%")
-        print("-----\t-----------------\t-----------------")
+        print("Level\tMen\tWomen")
+        print("%\t\t%")
+        print("-----\t-----------------")
 
         men_data = []
         women_data = []
@@ -110,9 +107,8 @@ class Control:
 
 
 if __name__ == "__main__": 
-    app.run()
-    control = Control('male', 10)
+    # app.run()
+    control = Control('male', 1)
     control.run_simulations()
     results = control.fetch_results()
     summary = control.print_summary()
-    # summary = control.print_summary()

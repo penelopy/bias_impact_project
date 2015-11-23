@@ -1,6 +1,4 @@
-import math
 # import random
-import time
 from numpy import random
 
 from employee import Employee
@@ -77,33 +75,33 @@ class Simulation:
             num_employees_at_level = len(employee_list_at_level)
             num_employees_to_retain = int(num_employees_at_level * ((100 - self.attrition)/100.0))
             indices_to_retain = random.choice(range(num_employees_at_level), num_employees_to_retain)
+            # indices_to_retain = random.sample(range(num_employees_at_level), num_employees_to_retain)
             retained_employees = []
             for i in indices_to_retain: 
                 retained_employees.append(employee_list_at_level[i])
             self.levels_to_employees[level] = retained_employees
 
-
     def promote(self):
-        """Looks at each level, determines the number of promotions, adds and
-        deletes employees to various levels"""
-        for i in range(self.num_levels - 1):
-            prev_level = i
-            candidates = self.levels_to_employees.get(prev_level)
-            new_level = i + 1
-            targets = self.levels_to_employees.get(new_level)
+        """Looks at every level except entry level and determines the number of promotions, adds and
+        deletes employees to each level."""
+        for i in range(self.num_levels, 1, -1):
+            current_level = i
+            prev_level = i - 1
+            candidates = self.levels_to_employees.get(prev_level - 1)
+
+            current_level_employees = self.levels_to_employees.get(current_level - 1)
 
             candidates.sort(key=lambda x: x.rating, reverse=True)
 
             num_candidates = len(candidates)
-            open_positions = self.num_positions_list[new_level] - len(targets)
+            total_positions = self.num_positions_list[current_level - 1]
+            fill_positions = len(current_level_employees)
+            open_positions = total_positions - fill_positions
             num_promotions = min(num_candidates, open_positions)
             candidates_to_promote = candidates[:num_promotions]
 
-            self.levels_to_employees[prev_level] = candidates[num_promotions:]
-            self.levels_to_employees[new_level] = targets + candidates_to_promote
-            candidates = self.levels_to_employees.get(prev_level)
-
-            targets = self.levels_to_employees.get(new_level)
+            self.levels_to_employees[prev_level - 1] = candidates[num_promotions:]
+            self.levels_to_employees[current_level - 1] = current_level_employees + candidates_to_promote
 
     def get_result(self):
         """Counts number of men and women at each level and saves totals to
