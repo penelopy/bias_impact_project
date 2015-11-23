@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <!-- <link rel="stylesheet" href="/static/css/bootstrap.min.css"/> -->
     <link rel="stylesheet" href="static/css/main.css" >
 
     <!--favicon cross-browser/device stuff-->
@@ -35,24 +34,7 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-<!--<nav class="navbar navbar-default navbar-fixed-top">-->
-<!--<div class="container-fluid">-->
-<!--<div class="navbar-header">-->
-<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
-<!--<span class="icon-bar"></span>-->
-<!--<span class="icon-bar"></span>-->
-<!--<span class="icon-bar"></span>                        -->
-<!--</button>-->
-<!--<a class="navbar-brand" href="#myPage">Gender and Promotion Simulation</a>-->
-<!--</div>-->
-<!--<div class="collapse navbar-collapse" id="myNavbar">-->
-<!--<ul class="nav navbar-nav navbar-right">-->
-<!--<li><a href="https://github.com/penelopy/bias_impact_project">OPEN SOURCE</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
-<!--</nav>-->
+<body >
 
 <!-- (The Image Section) -->
 <div class="header">
@@ -66,35 +48,38 @@
         <!--</div>-->
     </div>
 </div>
-<!-- (Histogram) -->
+
+<!-- (The Chart) -->
 <div id="container" class="chart-container"></div>
 
-<div class="row">
-    <div class="btn-group" data-toggle="buttons">
-        <label class="myButton btn btn-primary women">
-            <input type="radio" name="gender" value="female" onchange="dataHasChanged()">Bias favoring women
-        </label>
-        <label class="myButton btn btn-primary active men">
-            <input type="radio" name="gender" value="male" onchange="dataHasChanged()" checked="checked">Bias favoring men
-        </label>
-    </div>
-</div>
-
-<div class="row">
-    <div class="btn-group" data-toggle="buttons">
-        <label class="myButton btn btn-primary no-bias">
-            <input type="radio" name="bias" value="0" onchange="dataHasChanged()"> No bias
-        </label>
-        <label class="myButton btn btn-primary one-bias">
-            <input type="radio" name="bias" value="1" onchange="dataHasChanged()"> 1% bias
-        </label>
-        <label class="myButton btn btn-primary five-bias">
-            <input type="radio" name="bias" value="5" onchange="dataHasChanged()"> 5% bias
-        </label>
-        <label class="myButton btn btn-primary active ten-bias">
-            <input type="radio" name="bias" value="10" onchange="dataHasChanged()" checked="checked"> 10% bias
-        </label>
-    </div>
+<!-- (The Buttons -->
+<div class="all-buttons">
+    <!--<div class="row">-->
+        <div class="btn-group" data-toggle="buttons">
+            <label class="myButton btn btn-primary women">
+                <input type="radio" name="gender" value="female" onchange="dataHasChanged()">Bias favoring women
+            </label>
+            <label class="myButton btn btn-primary active men">
+                <input type="radio" name="gender" value="male" onchange="dataHasChanged()" checked="checked">Bias favoring men
+            </label>
+        </div>
+    <!--</div>-->
+    <!--<div class="row">-->
+        <div class="btn-group" data-toggle="buttons">
+            <label class="myButton btn btn-primary no-bias">
+                <input type="radio" name="bias" value="0" onchange="dataHasChanged()"> No bias
+            </label>
+            <label class="myButton btn btn-primary one-bias">
+                <input type="radio" name="bias" value="1" onchange="dataHasChanged()"> 1% bias
+            </label>
+            <label class="myButton btn btn-primary five-bias">
+                <input type="radio" name="bias" value="5" onchange="dataHasChanged()"> 5% bias
+            </label>
+            <label class="myButton btn btn-primary active ten-bias">
+                <input type="radio" name="bias" value="10" onchange="dataHasChanged()" checked="checked"> 10% bias
+            </label>
+        </div>
+    <!--</div>-->
 </div>
 
 <!-- (The Concept Section) -->
