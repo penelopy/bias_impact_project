@@ -73,8 +73,7 @@ class Control:
 
             men_append(men_percentage)
             women_append(women_percentage)
-        print "men", men_data
-        print "women", women_data
+
         return [men_data, women_data]
 
     def print_summary(self):
