@@ -172,6 +172,29 @@ body {
 
 /* SMALL PHONE SIZE */
 @media (max-width: 30em) {
+    .header-content img {
+        width: 75px;
+    }
+    .header-content {
+        width: 320px;
+        min-height: 80px;
+    }
+    .header-text {
+        padding-left: 20px;
+    }
+    .heading {
+        font-size: 24px;
+    }
+    .subheading {
+        font-size: 14px;
+        margin-top: 0;
+    }
+    .chart-container {
+        margin: 10px 10px 10px 0;
+    }
+    .background-text {
+        width: 320px;   
+    }
 }
 
 /* DESKTOP SIZE */
