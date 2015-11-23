@@ -210,6 +210,9 @@ margin-right: 10px;
     .btn-group {
       margin-top: 10px;
     }
+    footer a {
+      display: block;
+    }
 }
 
 /* DESKTOP SIZE */
