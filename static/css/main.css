@@ -3,6 +3,26 @@ body {
  font: 400 15px/1.8 Lato, sans-serif;
  color: #777;
 }
+.btn.women {
+    background-color: rgb(124, 181, 236);
+}
+.btn.men {
+    background-color: rgb(67, 67, 72);
+   color: #f1f1f1  ;
+
+}
+.btn.no-bias {
+    background-color: rgba(0, 255, 0, 0.7);
+}
+.btn.one-bias {
+    background-color: yellow;
+}
+.btn.five-bias {
+    background-color: orange;
+}
+.btn.ten-bias {
+    background-color: rgba(255, 0, 0, 0.7);
+}
  .header-text {
    color: white;
    float: left;
@@ -66,9 +86,9 @@ body {
  .btn {
    padding: 10px 20px;
    background-color: #808080;
-   color: #f1f1f1  ;
    border-radius: 0;
    transition: .2s;
+   color: black;
 }
  .nav-tabs li a {
    color: #777;
