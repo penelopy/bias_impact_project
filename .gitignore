@@ -1,4 +1,6 @@
 pip-selfcheck.json
 *.pyc
 *venv/
+.bash_profile
+.zsh
 .idea/*
