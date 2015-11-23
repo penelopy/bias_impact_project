@@ -143,8 +143,11 @@ body {
 
 /* LARGE PHONE SIZE*/
 @media (max-width: 48em) {
-    h1 {
+    .heading {
      font-size: 30px;
+    }
+    .header-text {
+    padding-left: 30px;
     }
     .subheading {
      font-size: 17px;
@@ -155,11 +158,15 @@ body {
     .header-content {
      padding: 10px 20px;
      width: 475px;
-     min-height: 140px;
+     min-height: 130px;
 
     }
     .header-content img {
     width: 125px;
+    }
+    .background-text {
+        width: 490px;
+        padding: 20px;
     }
 }
 
