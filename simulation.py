@@ -1,6 +1,4 @@
-import math
 # import random
-import time
 from numpy import random
 
 from employee import Employee
@@ -41,6 +39,7 @@ class Simulation:
             append = employee_list_at_level.append
             if employee_list_at_level is not None:
                 while len(employee_list_at_level) < positions:
+                    print "hiring", level
                     append(Employee(next_gender))
                     if next_gender == "female":
                         next_gender = "male"
@@ -84,69 +83,50 @@ class Simulation:
 
             self.levels_to_employees[level] = retained_employees
 
-            # indexed_employees_to_be_deleted = random.sample(num_employees_to_be_deleted)
-
-            # for i in range(num_employees_at_level):
-            #     if i not in indexed_employees_to_be_deleted:
-            #         retained_employees.append(employee_list_at_level[i])
-            # self.levels_to_employees[level] = retained_employees
-
-
-
-        # for level in range(self.num_levels):
-        #     retained_employees = []
-        #     employee_list_at_level = self.levels_to_employees.get(level)
-        #     num_employees_at_level = len(employee_list_at_level)
-        #     num_employees_to_be_deleted = int(num_employees_at_level * (self.attrition/100.0))
-        #     indexed_employees_to_be_deleted = random.sample(num_employees_to_be_deleted)
-
-        #     for i in range(num_employees_at_level):
-        #         if i not in indexed_employees_to_be_deleted:
-        #             retained_employees.append(employee_list_at_level[i])
-        #     self.levels_to_employees[level] = retained_employees
-
-
-
-
-
-    # def attrit(self):
-    #     """Looks at each employee in dictionary and randomly retains employees
-    #     based on global attrition rate"""
-    #     for level in range(self.num_levels):
-    #         updated_employee_list = [] #retained employees will be saved here
-    #         employee_list_at_level = self.levels_to_employees.get(level)
-    #         for employee in employee_list_at_level:
-    #             if random.randrange(0, 100) >= self.attrition:
-    #                 updated_employee_list.append(employee)
-
-    #         self.levels_to_employees[level] = updated_employee_list
-
-
-
     def promote(self):
-        """Looks at each level, determines the number of promotions, adds and
-        deletes employees to various levels"""
-        # start = time.clock()
-        for i in range(self.num_levels - 1):
-            prev_level = i
-            candidates = self.levels_to_employees.get(prev_level)
-            # print candidates[0].rating
-            new_level = i + 1
-            targets = self.levels_to_employees.get(new_level)
+        """Refactored version - starts at top level, completes promotion and continues on the next tier down"""
+        """Looks at every level except entry level and determines the number of promotions, adds and
+        deletes employees to each level."""
+        for i in range(self.num_levels, 1, -1):
+            current_level = i
+            prev_level = i - 1
+            candidates = self.levels_to_employees.get(prev_level - 1)
+
+            current_level_employees = self.levels_to_employees.get(current_level - 1)
 
             candidates.sort(key=lambda x: x.rating, reverse=True)
 
             num_candidates = len(candidates)
-            open_positions = self.num_positions_list[new_level] - len(targets)
+            total_positions = self.num_positions_list[current_level - 1]
+            fill_positions = len(current_level_employees)
+            open_positions = total_positions - fill_positions
             num_promotions = min(num_candidates, open_positions)
             candidates_to_promote = candidates[:num_promotions]
 
-            self.levels_to_employees[prev_level] = candidates[num_promotions:]
-            self.levels_to_employees[new_level] = targets + candidates[:num_promotions]
-            candidates = self.levels_to_employees.get(prev_level)
+            self.levels_to_employees[prev_level - 1] = candidates[num_promotions:]
+            self.levels_to_employees[current_level - 1] = current_level_employees + candidates_to_promote
 
-            targets = self.levels_to_employees.get(new_level)
-        # print time.clock() - start, "promote method time"
+
+    # def promote(self):
+    #     """ Original version - starts at entry level and moves to the top"""
+    #     """Looks at each level, determines the number of promotions, adds and
+    #     deletes employees to various levels"""
+    #     for i in range(self.num_levels - 1):
+    #         prev_level = i
+    #         candidates = self.levels_to_employees.get(prev_level)
+    #         # print candidates[0].rating
+    #         new_level = i + 1
+    #         targets = self.levels_to_employees.get(new_level)
+
+    #         candidates.sort(key=lambda x: x.rating, reverse=True)
+
+    #         num_candidates = len(candidates)
+    #         open_positions = self.num_positions_list[new_level] - len(targets)
+    #         num_promotions = min(num_candidates, open_positions)
+
+    #         self.levels_to_employees[prev_level] = candidates[num_promotions:]
+    #         self.levels_to_employees[new_level] = targets + candidates[:num_promotions]
+   
 
     def get_result(self):
         """Counts number of men and women at each level and saves totals to

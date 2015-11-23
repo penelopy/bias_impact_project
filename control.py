@@ -67,9 +67,7 @@ class Control:
                 women_averager.add(result.women[level])
 
             total_employees = men_averager.get_total() + women_averager.get_total()
-            men_avg = men_averager.get_average()
             men_percentage = 100 * men_averager.get_total() / total_employees
-            women_avg = women_averager.get_average()
             women_percentage = 100 * women_averager.get_total() / total_employees
 
             men_append(men_percentage)
@@ -98,10 +96,68 @@ class Control:
 #         """get average of numbers list"""
 #         return self.total / float(len(self.numbers))
 
+    # def print_summary(self):
+    #     """Print summary"""
+    #     print("Level\tMen\tWomen")
+    #     print("%\t\t%")
+    #     print("-----\t-----------------")
+
+    #     men_data = []
+    #     women_data = []
+    #     men_append = men_data.append
+    #     women_append = women_data.append
+
+    #     for level in range(0, self.num_levels):
+    #         men_averager = Averager()
+    #         women_averager = Averager()
+    #         for result in self.results:
+    #             men_averager.add(result.men[level])
+    #             women_averager.add(result.women[level])
+
+    #         total_employees = men_averager.get_total() + women_averager.get_total()
+    #         men_percentage = 100 * men_averager.get_total() / total_employees
+    #         women_percentage = 100 * women_averager.get_total() / total_employees
+
+    #         men_append(men_percentage)
+    #         women_append(women_percentage)
+
+    #         summary = "%d\t%.2f\t%.2f" %(level + 1, men_percentage, women_percentage)
+    #         print summary
+
+    def print_summary(self):
+        """Print summary"""
+        print("Level\tMen\tWomen")
+        print("%\t\t%")
+        print("-----\t-----------------")
+
+        men_data = []
+        women_data = []
+        # Setting append constructs here, saves compute time in loop
+        men_append = men_data.append 
+        women_append = women_data.append
+
+
+        for level in range(0, self.num_levels):
+            men_total = 0
+            women_total = 0
+            for result in self.results:
+                men_total += result.men[level]
+                women_total += result.women[level]
+
+            total_employees = men_total + women_total
+            men_percentage = 100 * men_total / total_employees
+            women_percentage = 100 * women_total / total_employees
+
+            men_append(men_percentage)
+            women_append(women_percentage)
+
+            summary = "%d\t%.2f\t%.2f" %(level + 1, men_percentage, women_percentage)
+            print summary
 
 
 if __name__ == "__main__": 
-    app.run() 
-    # control = Control('male', 10)
-    # control.run_simulations()
-    # results = control.fetch_results()
+    # app.run() 
+    control = Control('male', 5)
+    control.run_simulations()
+    results = control.fetch_results()
+    summary = control.print_summary()
