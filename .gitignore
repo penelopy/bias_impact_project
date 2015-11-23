@@ -1,3 +1,4 @@
 pip-selfcheck.json
 *.pyc
 *venv/
+.idea/*

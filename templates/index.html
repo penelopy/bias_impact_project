@@ -71,29 +71,28 @@
 
 <div class="row">
     <div class="btn-group" data-toggle="buttons">
-        <label class="myButton btn btn-primary active">
-            <input type="radio" name="gender" value="male" onchange="dataHasChanged()" checked="checked"> Male
+        <label class="myButton btn btn-primary women">
+            <input type="radio" name="gender" value="female" onchange="dataHasChanged()">Bias favoring women
         </label>
-        <label class="myButton btn btn-primary">
-            <input type="radio" name="gender" value="female" onchange="dataHasChanged()"> Female
+        <label class="myButton btn btn-primary active men">
+            <input type="radio" name="gender" value="male" onchange="dataHasChanged()" checked="checked">Bias favoring men
         </label>
     </div>
-    <p>(Displays bias <strong>IN FAVOR OF</strong> this gender.)</p>
 </div>
 
 <div class="row">
     <div class="btn-group" data-toggle="buttons">
-        <label class="myButton btn btn-primary active">
-            <input type="radio" name="bias" value="10" onchange="dataHasChanged()" checked="checked"> 10% bias
+        <label class="myButton btn btn-primary no-bias">
+            <input type="radio" name="bias" value="0" onchange="dataHasChanged()"> No bias
         </label>
-        <label class="myButton btn btn-primary">
-            <input type="radio" name="bias" value="5" onchange="dataHasChanged()"> 5% bias
-        </label>
-        <label class="myButton btn btn-primary">
+        <label class="myButton btn btn-primary one-bias">
             <input type="radio" name="bias" value="1" onchange="dataHasChanged()"> 1% bias
         </label>
-        <label class="myButton btn btn-primary">
-            <input type="radio" name="bias" value="0" onchange="dataHasChanged()"> No bias
+        <label class="myButton btn btn-primary five-bias">
+            <input type="radio" name="bias" value="5" onchange="dataHasChanged()"> 5% bias
+        </label>
+        <label class="myButton btn btn-primary active ten-bias">
+            <input type="radio" name="bias" value="10" onchange="dataHasChanged()" checked="checked"> 10% bias
         </label>
     </div>
 </div>
