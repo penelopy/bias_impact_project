@@ -57,6 +57,9 @@ body {
     padding-top: 20px;
     padding-bottom: 30px;
 }
+.background-text h3 {
+    text-align: center;
+}
  .chart-container {
    min-width: 310px;
    height: 400px;
@@ -129,6 +132,7 @@ body {
    background-color: #2d2d30  ;
    color: #f5f5f5  ;
    padding: 32px;
+   text-align: center;
 }
  footer a {
    color: #f5f5f5  ;
@@ -193,7 +197,7 @@ body {
         margin: 10px 10px 10px 0;
     }
     .background-text {
-        width: 320px;   
+        width: 320px;
     }
 }
 
