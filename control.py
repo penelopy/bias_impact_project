@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import json
-
-from averager import Averager
+# from averager import Averager
 from simulation import Simulation
 
 app = Flask(__name__)
@@ -39,7 +38,7 @@ class Control:
         self.promotion_bias = int(promotion_bias)
         self.num_simulations = 50
         self.attrition = 15
-        self.iterations_per_simulation = 15
+        self.iterations_per_simulation = 20
         self.num_positions_list = [500, 350, 200, 150, 100, 75, 40, 10]
         self.num_levels = len(self.num_positions_list)
 
@@ -56,73 +55,26 @@ class Control:
     def fetch_results(self):
         men_data = []
         women_data = []
-        men_append = men_data.append
+        # Setting append constructs here, saves compute time in loop
+        men_append = men_data.append 
         women_append = women_data.append
 
-        for level in range(0, self.num_levels):
-            men_averager = Averager()
-            women_averager = Averager()
-            for result in self.results:
-                men_averager.add(result.men[level])
-                women_averager.add(result.women[level])
 
-            total_employees = men_averager.get_total() + women_averager.get_total()
-            men_percentage = 100 * men_averager.get_total() / total_employees
-            women_percentage = 100 * women_averager.get_total() / total_employees
+        for level in range(0, self.num_levels):
+            men_total = 0
+            women_total = 0
+            for result in self.results:
+                men_total += result.men[level]
+                women_total += result.women[level]
+
+            total_employees = men_total + women_total
+            men_percentage = 100 * men_total / total_employees
+            women_percentage = 100 * women_total / total_employees
 
             men_append(men_percentage)
             women_append(women_percentage)
-
         return [men_data, women_data]
 
-
-#considering eliminating class and refactoring
-# class Averager:
-
-#     def __init__(self):
-#         self.numbers = []
-#         self.total = 0
-
-#     def add(self, n):
-#         """add number to numbers list"""
-#         self.total += n
-#         self.numbers.append(n)
-
-#     def get_total(self):
-#         """sum numbers list"""
-#         return self.total
-
-#     def get_average(self):
-#         """get average of numbers list"""
-#         return self.total / float(len(self.numbers))
-
-    # def print_summary(self):
-    #     """Print summary"""
-    #     print("Level\tMen\tWomen")
-    #     print("%\t\t%")
-    #     print("-----\t-----------------")
-
-    #     men_data = []
-    #     women_data = []
-    #     men_append = men_data.append
-    #     women_append = women_data.append
-
-    #     for level in range(0, self.num_levels):
-    #         men_averager = Averager()
-    #         women_averager = Averager()
-    #         for result in self.results:
-    #             men_averager.add(result.men[level])
-    #             women_averager.add(result.women[level])
-
-    #         total_employees = men_averager.get_total() + women_averager.get_total()
-    #         men_percentage = 100 * men_averager.get_total() / total_employees
-    #         women_percentage = 100 * women_averager.get_total() / total_employees
-
-    #         men_append(men_percentage)
-    #         women_append(women_percentage)
-
-    #         summary = "%d\t%.2f\t%.2f" %(level + 1, men_percentage, women_percentage)
-    #         print summary
 
     def print_summary(self):
         """Print summary"""
@@ -157,7 +109,7 @@ class Control:
 
 if __name__ == "__main__": 
     # app.run() 
-    control = Control('male', 5)
+    control = Control('male', 1)
     control.run_simulations()
-    results = control.fetch_results()
+    # results = control.fetch_results()
     summary = control.print_summary()

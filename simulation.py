@@ -39,7 +39,6 @@ class Simulation:
             append = employee_list_at_level.append
             if employee_list_at_level is not None:
                 while len(employee_list_at_level) < positions:
-                    print "hiring", level
                     append(Employee(next_gender))
                     if next_gender == "female":
                         next_gender = "male"
@@ -67,12 +66,12 @@ class Simulation:
                 else:
                     employee.rating = random.randint(0, 100)
 
+
     def attrit(self):
         """Looks at each employee in dictionary and randomly retains employees
         based on global attrition rate"""
 
         for level in range(self.num_levels):
-            
             employee_list_at_level = self.levels_to_employees.get(level)
             num_employees_at_level = len(employee_list_at_level)
             num_employees_to_retain = int(num_employees_at_level * ((100 - self.attrition)/100.0))
@@ -84,49 +83,27 @@ class Simulation:
             self.levels_to_employees[level] = retained_employees
 
     def promote(self):
-        """Refactored version - starts at top level, completes promotion and continues on the next tier down"""
         """Looks at every level except entry level and determines the number of promotions, adds and
         deletes employees to each level."""
-        for i in range(self.num_levels, 1, -1):
-            current_level = i
-            prev_level = i - 1
-            candidates = self.levels_to_employees.get(prev_level - 1)
+        for i in range(self.num_levels - 1, 0, -1):
+            hire_to_level = i
+            hire_from_level = i - 1
 
-            current_level_employees = self.levels_to_employees.get(current_level - 1)
+            hire_from_employees = self.levels_to_employees.get(hire_from_level)
 
-            candidates.sort(key=lambda x: x.rating, reverse=True)
+            current_level_employees = self.levels_to_employees.get(hire_to_level)
 
-            num_candidates = len(candidates)
-            total_positions = self.num_positions_list[current_level - 1]
+            hire_from_employees.sort(key=lambda x: x.rating, reverse=True)
+
+            num_candidates = len(hire_from_employees)
+            total_positions = self.num_positions_list[hire_to_level]
             fill_positions = len(current_level_employees)
             open_positions = total_positions - fill_positions
             num_promotions = min(num_candidates, open_positions)
-            candidates_to_promote = candidates[:num_promotions]
+            candidates_to_promote = hire_from_employees[:num_promotions]
 
-            self.levels_to_employees[prev_level - 1] = candidates[num_promotions:]
-            self.levels_to_employees[current_level - 1] = current_level_employees + candidates_to_promote
-
-
-    # def promote(self):
-    #     """ Original version - starts at entry level and moves to the top"""
-    #     """Looks at each level, determines the number of promotions, adds and
-    #     deletes employees to various levels"""
-    #     for i in range(self.num_levels - 1):
-    #         prev_level = i
-    #         candidates = self.levels_to_employees.get(prev_level)
-    #         # print candidates[0].rating
-    #         new_level = i + 1
-    #         targets = self.levels_to_employees.get(new_level)
-
-    #         candidates.sort(key=lambda x: x.rating, reverse=True)
-
-    #         num_candidates = len(candidates)
-    #         open_positions = self.num_positions_list[new_level] - len(targets)
-    #         num_promotions = min(num_candidates, open_positions)
-
-    #         self.levels_to_employees[prev_level] = candidates[num_promotions:]
-    #         self.levels_to_employees[new_level] = targets + candidates[:num_promotions]
-   
+            self.levels_to_employees[hire_from_level] = hire_from_employees[num_promotions:]
+            self.levels_to_employees[hire_to_level] = current_level_employees + candidates_to_promote
 
     def get_result(self):
         """Counts number of men and women at each level and saves totals to
