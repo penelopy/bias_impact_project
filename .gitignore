@@ -4,3 +4,4 @@ pip-selfcheck.json
 .bash_profile
 .zsh
 .idea/*
+.cache/
