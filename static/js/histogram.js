@@ -9,7 +9,9 @@ function renderGraph(data){
   // Grab data
   parsed_data = $.parseJSON(data);
   var menDataset = parsed_data[0];
-  var womenDataset = parsed_data[1]
+  var womenDataset = parsed_data[1];
+  var bias_amount = parsed_data[2];
+  var gender_favored = parsed_data[3]
 
   // Render graph
   $('#container').highcharts({

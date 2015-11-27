@@ -48,8 +48,9 @@ class Simulation:
     def run(self):
         """Run simulation"""
         for _ in xrange(0, self.iterations_per_simulation):
+            self.attrit()       
             self.talent_review()
-            self.attrit()
+
             self.promote()
             self.hire()
 
@@ -60,9 +61,28 @@ class Simulation:
         for employee_list in self.levels_to_employees.values(): 
             for employee in employee_list:
                 if employee.gender == self.bias_favors_this_gender:
-                    employee.rating = random.randint(0, bias) 
+                    employee.rating = random.randint(0, bias)
+                    # print "male", employee.rating
                 else:
                     employee.rating = random.randint(0, 100)
+                    # print "female", employee.rating
+
+
+
+    # def talent_review(self):
+    #     """Looks at each employee object in dictionary, checks gender and gives
+    #     random performance rating"""
+    #     bias = 100 + self.promotion_bias
+    #     for employee_list in self.levels_to_employees.values(): 
+    #         for employee in employee_list:
+    #             if employee.gender == self.bias_favors_this_gender:
+    #                 employee.rating = random.randint(0, bias) 
+    #                 employee.career_ratings_list.append(employee.rating)
+    #                 employee.average_of_cum_ratings()
+    #             else:
+    #                 employee.rating = random.randint(0, 100)
+    #                 employee.career_ratings_list.append(employee.rating)
+    #                 employee.average_of_cum_ratings()
 
 
     def attrit(self):
@@ -96,11 +116,11 @@ class Simulation:
 
             num_candidates = len(promote_from_employees)
             total_positions = self.num_positions_at_level[promote_to_level]
-            fill_positions = len(promote_to_employees)
-            open_positions = total_positions - fill_positions
+            filled_positions = len(promote_to_employees)
+            open_positions = total_positions - filled_positions
             num_promotions = min(num_candidates, open_positions)
             candidates_to_promote = promote_from_employees[:num_promotions]
-
+            # Saves revised data back to the dictionary
             self.levels_to_employees[promote_from_level] = promote_from_employees[num_promotions:]
             self.levels_to_employees[promote_to_level] = promote_to_employees + candidates_to_promote
 
