@@ -40,7 +40,7 @@ Note: The simulator uses random selection for attrition and promotional scores. 
 
 ---
 ###Authors
-This project was built by Penelope Hill during her the final 2 weeks of her Technical Fellowship at Square. Support and contributions have been made by [Alyssa Pohahau](https://github.com/alyssa), [Wendy Dherin](https://github.com/doubledherin), and [Dina Westland](https://github.com/dina). The idea for this project came from [Eric Burke](https://github.com/eburke). 
+This project was built by [Penelope Hill](https://github.com/penelopy) during her the final 2 weeks of her Technical Fellowship at Square. Contributions have been made by [Alyssa Pohahau](https://github.com/alyssa), [Wendy Dherin](https://github.com/doubledherin), and [Dina Westland](https://github.com/dina). The idea for this project came from [Eric Burke](https://github.com/eburke). 
 
 ---
 ###License
