@@ -4,21 +4,25 @@ body {
  color: #777;
  margin: 0;
 }
-.btn-group {
+.btn-group_1 {
     text-align: center;
     min-height: 60px;
+}
+.btn-group_2 {
+    text-align: center;
+    min-height: 60px;
+    padding-bottom: 20px;
 }
 
 .toggle-btn-grp * {
     width:140px;
     height:30px;
     line-height:30px;
-    margin-bottom: 40px;
 }
 .toggle-btn-grp div {
     display:inline-block;
     position:relative;
-    margin:15px 15px;
+    margin:10px 15px;
 }
 
 .toggle-btn-grp div label {
@@ -47,6 +51,10 @@ body {
     color: black;
     padding: 5px 10px;
 }
+.chart_label {
+  text-align: center;
+  font-size: 20px;
+}
  .header-text {
    color: white;
    float: left;
@@ -72,7 +80,7 @@ body {
    margin-right: 15px;
 }
  .background-container {
-   background-color: rgba(181, 199, 138, 0.3);
+   background-color: rgba(181, 199, 138, 0.7);
 }
 .background-text {
     width: 632px;

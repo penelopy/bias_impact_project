@@ -50,19 +50,21 @@
     </div>
 </div>
 
+<div id="chartLabel" class="chart_label"></div>
+
 <!-- (The Chart) -->
 <div id="container" class="chart-container"></div>
 
 <!-- (The Buttons -->
 <div class="all-buttons">
     <!--<div class="row">-->
-        <div class="toggle-btn-grp btn-group">
+        <div class="toggle-btn-grp btn-group_1">
             <div><input type="radio" onchange="dataHasChanged()" value="female" name="gender"/><label class="toggle-btn women">Bias favoring women</label></div>
             <div><input type="radio" onchange="dataHasChanged()" checked="checked" value="male" name="gender"/><label class="toggle-btn men">Bias favoring men</label></div>
         </div>
     <!--</div>-->
     <!--<div class="row">-->
-        <div class="toggle-btn-grp btn-group">
+        <div class="toggle-btn-grp btn-group_2">
             <div><input type="radio" onchange="dataHasChanged()" value="0" name="bias"/><label class="toggle-btn">No bias</label></div>
             <div><input type="radio" onchange="dataHasChanged()" value="2" name="bias"/><label class="toggle-btn">2% bias</label></div>
             <div><input type="radio" onchange="dataHasChanged()" value="5" name="bias"/><label class="toggle-btn">5% bias</label></div>

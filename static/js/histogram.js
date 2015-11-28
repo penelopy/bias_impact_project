@@ -6,9 +6,7 @@ var dataHasChanged = function(){
 };
 
 
-function mattTest(){
-    console.log('test');
-}
+
 
 function renderGraph(data){
   // Grab data
@@ -18,24 +16,16 @@ function renderGraph(data){
   var bias_amount = parsed_data[2];
   var gender_favored = parsed_data[3]
 
+  document.getElementById("chartLabel").innerHTML = 
+    'Graph represents ' + bias_amount + '% bias in favor of ' + gender_favored;
+
+
   // Render graph
   $('#container').highcharts({
     chart: {
         type: 'column'
     },
-    title: {
-        text: 'Promotion Bias Simulator'
-    },
-    labels: {
-        items: [{
-            html: 'Graph displays a {{ bias_amount }} bias in favor of {{ gender_favored }}',
-            style: {
-                left: '50px',
-                top: '18px',
-                color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-            }
-        }]
-    },
+
     xAxis: {
         categories: [
             'Level 1: Entry Level',
@@ -52,8 +42,9 @@ function renderGraph(data){
     yAxis: {
         min: 0,
         max: 100,
+        tickInterval: 10,
         title: {
-            text: 'Percentage'
+            text: '% of total employees'
         }
     },
     tooltip: {
@@ -76,7 +67,7 @@ function renderGraph(data){
         data: womenDataset, 
         color: '#B1D3ED'
     }, {name: 'Men',
-        data: menDataset, 
+        data: menDataset,
         color: '#346F9A'
     }]
   });
@@ -91,16 +82,6 @@ function renderGraphTemplate(data){
     title: {
         text: 'Promotion Bias Simulator'
     },
-    labels: {
-            items: [{
-                html: 'Graph displays a x bias in favor of MEN',
-                style: {
-                    left: '50px',
-                    top: '18px',
-                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-                }
-            }]
-        },
     xAxis: {
         categories: [
             'Level 1',
@@ -117,13 +98,10 @@ function renderGraphTemplate(data){
     yAxis: {
         min: 0,
         max: 100,
+        tickInterval: 10,
         title: {
-            text: 'Percentage'
+            text: '% of total employees'
         },
-        categories: [
-            'Women', 
-            'Men'
-        ],
     },
     tooltip: {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
