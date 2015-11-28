@@ -5,6 +5,11 @@ var dataHasChanged = function(){
     $.post("/bias", {bias: bias, gender: gender}, renderGraph);
 };
 
+
+function mattTest(){
+    console.log('test');
+}
+
 function renderGraph(data){
   // Grab data
   parsed_data = $.parseJSON(data);
@@ -21,16 +26,26 @@ function renderGraph(data){
     title: {
         text: 'Promotion Bias Simulator'
     },
+    labels: {
+        items: [{
+            html: 'Graph displays a {{ bias_amount }} bias in favor of {{ gender_favored }}',
+            style: {
+                left: '50px',
+                top: '18px',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+            }
+        }]
+    },
     xAxis: {
         categories: [
-            'Level 1',
+            'Level 1: Entry Level',
             'Level 2',
             'Level 3',
             'Level 4',
             'Level 5',
             'Level 6',
             'Level 7',
-            'Level 8'
+            'Level 8: Exec Level'
         ],
         // crosshair: true
     },
@@ -55,11 +70,14 @@ function renderGraph(data){
             borderWidth: 0
         }
     },
+
     series: [{
         name: 'Women',
-        data: womenDataset
+        data: womenDataset, 
+        color: '#B1D3ED'
     }, {name: 'Men',
-        data: menDataset 
+        data: menDataset, 
+        color: '#346F9A'
     }]
   });
 }
@@ -73,6 +91,16 @@ function renderGraphTemplate(data){
     title: {
         text: 'Promotion Bias Simulator'
     },
+    labels: {
+            items: [{
+                html: 'Graph displays a x bias in favor of MEN',
+                style: {
+                    left: '50px',
+                    top: '18px',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                }
+            }]
+        },
     xAxis: {
         categories: [
             'Level 1',
@@ -91,7 +119,11 @@ function renderGraphTemplate(data){
         max: 100,
         title: {
             text: 'Percentage'
-        }
+        },
+        categories: [
+            'Women', 
+            'Men'
+        ],
     },
     tooltip: {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -109,11 +141,11 @@ function renderGraphTemplate(data){
     },
         series: [{
         name: 'Men',
-        data: [0,0,0,0,0,0,0,0] 
+        data: [0,0,0,0,0,0,0,0]
     }, {
         name: 'Women',
         data: [0,0,0,0,0,0,0,0]
-    }]
+        }]
   });
 }
 

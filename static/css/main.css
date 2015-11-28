@@ -4,28 +4,48 @@ body {
  color: #777;
  margin: 0;
 }
-.btn.men {
-    background-color: rgb(67, 67, 72);
-    color: #f1f1f1;
-}
-.btn.women {
-    background-color: rgb(124, 181, 236);
-}
-.btn.no-bias {
-    background-color: rgba(124, 181, 236, 0.3);
-}
-.btn.one-bias {
-    background-color: rgba(124, 181, 236, 0.5);
-}
-.btn.five-bias {
-    background-color: rgba(124, 181, 236, 0.7);
-}
-.btn.ten-bias {
-    background-color: rgba(124, 181, 236, 0.9);
-}
 .btn-group {
     text-align: center;
     min-height: 60px;
+}
+
+.toggle-btn-grp * {
+    width:140px;
+    height:30px;
+    line-height:30px;
+    margin-bottom: 40px;
+}
+.toggle-btn-grp div {
+    display:inline-block;
+    position:relative;
+    margin:15px 15px;
+}
+
+.toggle-btn-grp div label {
+    position:absolute;
+    text-align:center;
+    background-color: #D9D7D5;
+    color: black;
+    padding: 5px 10px;
+}
+
+.toggle-btn-grp div input {
+    position:absolute;
+    z-index:1;
+    cursor:pointer;
+    opacity:0;
+}
+
+.toggle-btn-grp div:hover label {
+    border:solid 1px #a0d5dc !important; 
+    background: rgb(169,169,169);
+}
+
+.toggle-btn-grp div input:checked + label {
+    background: rgb(169,169,169);
+    box-shadow: inset 0 0 0 5px #3071A9;
+    color: black;
+    padding: 5px 10px;
 }
  .header-text {
    color: white;
@@ -52,7 +72,7 @@ body {
    margin-right: 15px;
 }
  .background-container {
-   background-color: #e6e6e6;
+   background-color: rgba(181, 199, 138, 0.3);
 }
 .background-text {
     width: 632px;
@@ -99,6 +119,8 @@ margin-right: 10px;
    transition: .2s;
    color: black;
 }
+
+
  .nav-tabs li a {
    color: #777;
 }
