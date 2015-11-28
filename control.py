@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import json
 
-from averager import Averager
 from simulation import Simulation
 
 app = Flask(__name__)
@@ -71,7 +70,7 @@ class Control:
 
             men_append(men_percentage)
             women_append(women_percentage)
-        return [total_men_at_levels, total_women_at_levels]
+        return [total_men_at_levels, total_women_at_levels, self.promotion_bias, self.bias_favors_this_gender]
 
 
     def print_summary(self):
@@ -106,9 +105,13 @@ class Control:
 
 
 if __name__ == "__main__": 
-    # app.run()
+    # Printing & Testing
+    # control = Control('male', 5)
+    # control.run_simulations()
+    # summary = control.print_summary()
+
+    # Running app 
+    app.run()
     control = Control('male', 5)
     control.run_simulations()
-    # results = control.fetch_results()
-    summary = control.print_summary()
-
+    results = control.fetch_results()
