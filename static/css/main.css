@@ -28,7 +28,7 @@ body {
 .toggle-btn-grp div label {
     position:absolute;
     text-align:center;
-    background-color: #D9D7D5;
+    background-color: rgba(169, 169, 169, 0.5);
     color: black;
     padding: 5px 10px;
 }
@@ -46,7 +46,7 @@ body {
 }
 
 .toggle-btn-grp div input:checked + label {
-    background: rgb(169,169,169);
+    background: rgba(127, 127, 127, 0.7);
     box-shadow: inset 0 0 0 5px #3071A9;
     color: black;
     padding: 5px 10px;
@@ -76,7 +76,7 @@ body {
    margin-right: 15px;
 }
  .background-container {
-   background-color: rgba(181, 199, 138, 0.7);
+   background-color: rgba(204, 204, 204, 0.5);
 }
 .background-text {
     width: 632px;
@@ -157,8 +157,9 @@ margin-right: 10px;
  footer {
    background-color: #2d2d30  ;
    color: #f5f5f5  ;
-   padding: 32px;
+   padding: 22px;
    text-align: center;
+   word-spacing: 2px;
 }
  footer a {
    color: #f5f5f5  ;
