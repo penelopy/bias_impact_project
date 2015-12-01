@@ -82,8 +82,7 @@ function renderGraphTemplate(data){
         type: 'column'
     },
     title: {
-        text: 'Graph represents ' + bias_amount + '% bias in favor of ' + gender_favored,
-        useHTML: true,
+        text: 'Promotion bias simulation'
     },
     subtitle: {
         text: 'Based on 15% attrition and 20 promotion cycles'
