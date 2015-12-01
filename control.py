@@ -106,12 +106,12 @@ class Control:
 
 if __name__ == "__main__": 
     # Printing & Testing
-    # control = Control('male', 5)
-    # control.run_simulations()
-    # summary = control.print_summary()
-
-    # Running app 
-    app.run()
     control = Control('male', 5)
     control.run_simulations()
-    results = control.fetch_results()
+    summary = control.print_summary()
+
+    # Running app 
+    # app.run()
+    # control = Control('male', 5)
+    # control.run_simulations()
+    # results = control.fetch_results()
