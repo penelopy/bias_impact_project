@@ -17,7 +17,7 @@ function renderGraph(data){
   var gender_favored = parsed_data[3]
 
   document.getElementById("chartLabel").innerHTML = 
-    "and illustrates the impact of a " + "<span style='font-size:30px'>" + bias_amount + "% bias in favor of " + gender_favored + "</span>" + " during performance assessments over a 10-year period.";
+    "and illustrates the impact of a " + "<span style='font-size:25px'>" + bias_amount + "% bias in favor of " + gender_favored + "</span>" + " during performance assessments over a 10-year period.";
 
   // Render graph
   $('#container').highcharts({
