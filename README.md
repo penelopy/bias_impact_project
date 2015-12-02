@@ -30,13 +30,17 @@
 ###Background
 The topic of gender bias, particularly in tech companies, is a current one. It's a broad discussion touching on hiring and promotion practices, as well as inclusion in the workplace. 
 
-This project is inspired by this [research paper](http://www.ruf.rice.edu/~lane/papers/male_female.pdf) and illustrates the impact of bias on a simplified dataset.
+This simulation was inspired by ["Male-Female Differences: A Computer Simulation"]("http://www.ruf.rice.edu/~lane/papers/male_female.pdf") and [From_bias_to_exclusion_A_multilevel_emergent_theory_of_gender_segregation_in_organizations"]("http://www.academia.edu/7444928/) and illustrates the impact of bias on a simplified dataset.
 
-The simulator starts with an equal number of women and men at each employee level. Level one is entry-level and level eight is executive. The simulator demonstrates 12 promotional cycles, which represents 2 per year for 6 years.
+This simulation creates an 8-level company with an equal number of women and men at each employee level. Level one is entry-level and level eight represents the executive level. 
 
-Before each promotional period 15% of employees at all levels are randomly removed, representing a 15% attrition rate. Retained employees are randomly assigned promotion scores from 1-100, or 1-100 + bias amount for the favored gender.
+The simulator completes 20 promotional cycles, which represents 2 performance reviews per year for 10 years.
 
-Note: The simulator uses random selection for attrition and promotional scores. So the results will have a small variance.
+Before each promotional cycle the lowest ranking 15% of employees at all levels are removed, representing a 15% attrition rate.
+
+Retained employees are randomly assigned promotion scores from 1-100, or 1-100 + bias amount for the favored gender and each new score is added to that employee’s previous promotion scores.
+
+Note: The simulator uses random selection for promotion scores. So the results will have a small variance.
 
 ---
 ###Authors
