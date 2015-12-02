@@ -16,17 +16,20 @@ function renderGraph(data){
   var bias_amount = parsed_data[2];
   var gender_favored = parsed_data[3]
 
+  document.getElementById("chartLabel").innerHTML = 
+    "and illustrates the impact of a " + "<span style='font-size:30px'>" + bias_amount + "% bias in favor of " + gender_favored + "</span>" + " during performance assessments over a 10-year period.";
+
   // Render graph
   $('#container').highcharts({
     chart: {
         type: 'column'
     },
     title: {
-        text: 'Graph represents ' + bias_amount + '% bias in favor of ' + gender_favored,
+        text: null,
         useHTML: true,
     },
     subtitle: {
-        text: 'Based on 15% attrition and 20 promotion cycles'
+        text: null
     },
     xAxis: {
         categories: [
@@ -82,10 +85,10 @@ function renderGraphTemplate(data){
         type: 'column'
     },
     title: {
-        text: 'Promotion bias simulation'
+        text: null
     },
     subtitle: {
-        text: 'Based on 15% attrition and 20 promotion cycles'
+        text: null
     },
     xAxis: {
         categories: [
@@ -132,5 +135,5 @@ function renderGraphTemplate(data){
   });
 }
 
-$.post("/bias", {bias: 10, gender: 'male'}, renderGraph);
+$.post("/bias", {bias: 10, gender: 'men'}, renderGraph);
 
