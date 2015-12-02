@@ -29,7 +29,7 @@ class Simulation:
 
     def hire(self):
         """Populates levels_to_employees with 50% male/50% female employees"""
-        gender = ['male', 'female']
+        gender = ['men', 'women']
         #randomly assign gender to first employee
         next_gender = random.choice(gender)
         level = 0
@@ -39,10 +39,10 @@ class Simulation:
             if employee_list_at_level is not None:
                 while len(employee_list_at_level) < positions:
                     append(Employee(next_gender))
-                    if next_gender == "female":
-                        next_gender = "male"
+                    if next_gender == "women":
+                        next_gender = "men"
                     else: 
-                        next_gender = "female"
+                        next_gender = "women"
             level += 1
 
     def run(self):
@@ -61,10 +61,17 @@ class Simulation:
         for employee_list in self.levels_to_employees.values(): 
             for employee in employee_list:
                 if employee.gender == self.bias_favors_this_gender:
-                    employee.rating = random.randint(0, bias)
+                    # employee.rating = random.randint(0, bias)
+                    previous_rating = employee.rating
+                    new_rating = random.randint(0, bias)
+                    # saves updated rating to Employee object
+                    employee.rating = previous_rating + new_rating
                 else:
-                    employee.rating = random.randint(0, 100)
-
+                    # employee.rating = random.randint(0, 100)
+                    previous_rating = employee.rating
+                    new_rating = random.randint(0, 100)
+                    # saves updated rating to Employee object
+                    employee.rating = previous_rating + new_rating
 
     def attrit(self):
         """Looks at each employee in dictionary and removes the lowest ranking 
@@ -129,7 +136,7 @@ class Simulation:
             employee_list = self.levels_to_employees.get(level)
 
             for employee in employee_list:
-                if employee.gender == "male": 
+                if employee.gender == "men": 
                     total_men_at_level[level] += 1
                 else:
                     total_women_at_level[level] += 1
