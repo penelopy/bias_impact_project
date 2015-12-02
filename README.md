@@ -1,9 +1,8 @@
 ##Gender Bias 
-###and its cumulative effect on careers and promotions
----
+###and its cumulative effect on careers and organizations
 
-###View Project
-####[www.doesgenderbiasmatter.com](www.doesgenderbiasmatter.com)
+
+###View Project: [www.doesgenderbiasmatter.com](www.doesgenderbiasmatter.com)
 
 ---
 
@@ -28,11 +27,10 @@
 
 ---
 ###Background
-The topic of gender bias, particularly in tech companies, is a current one. It's a broad discussion touching on hiring and promotion practices, as well as inclusion in the workplace. 
 
 This simulation was inspired by ["Male-Female Differences: A Computer Simulation"](http://www.ruf.rice.edu/~lane/papers/male_female.pdf) and [“From bias to exclusion: A multilevel emergent theory of gender segregation in organizations”](http://www.academia.edu/7444928/) and illustrates the impact of bias on a simplified dataset.
 
-This simulation creates an 8-level company with an equal number of women and men at each employee level. Level one is entry-level and level eight represents the executive level. 
+It creates an 8-level company with an equal number of women and men at each employee level. Level one is entry-level and level eight represents the executive level. 
 
 The simulator completes 20 promotional cycles, which represents 2 performance reviews per year for 10 years.
 
