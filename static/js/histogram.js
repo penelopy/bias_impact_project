@@ -14,10 +14,10 @@ function renderGraph(data){
   var menDataset = parsed_data[0];
   var womenDataset = parsed_data[1];
   var bias_amount = parsed_data[2];
-  var gender_favored = parsed_data[3]
+  var gender_favored = parsed_data[3];
 
   document.getElementById("chartLabel").innerHTML = 
-    "and illustrates the impact of a " + "<span style='font-size:25px'>" + bias_amount + "% bias in favor of " + gender_favored + "</span>" + " during performance assessments over a 10-year period.";
+    "Changes in gender ratio when there is a " + "<span style='font-size:25px'>" + bias_amount + "% bias in favor of " + gender_favored + "</span>";
 
   // Render graph
   $('#container').highcharts({
