@@ -75,6 +75,11 @@ body {
   font-size: 18px;
   margin-top: -10px;
 }
+.loading_div {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
  h3, h4 {
    margin: 10px 0 15px 0;
    letter-spacing: 6px;

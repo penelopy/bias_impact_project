@@ -9,6 +9,15 @@ var dataHasChanged = function(){
 
 
 function renderGraph(data){
+
+  var $loading = $('#loading_div').hide();
+  $(document)
+  .ajaxStart(function () {
+    $loading.show();
+  })
+  .ajaxStop(function () {
+    $loading.hide();
+  });
   // Grab data
   parsed_data = $.parseJSON(data);
   var menDataset = parsed_data[0];
