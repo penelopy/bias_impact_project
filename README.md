@@ -26,19 +26,30 @@
 
 
 ---
-###Background
+###How It Works
 
-This simulation was inspired by ["Male-Female Differences: A Computer Simulation"](http://www.ruf.rice.edu/~lane/papers/male_female.pdf) and [“From bias to exclusion: A multilevel emergent theory of gender segregation in organizations”](http://www.academia.edu/7444928/) and illustrates the impact of bias on a simplified dataset.
+####Overview
 
-It creates an 8-level company with an equal number of women and men at each employee level. Level one is entry-level and level eight represents the executive level. 
+The simulation projects gender ratios for a theoretical company with eight hierarchical tiers, starting at entry-level (level 1) and proceeding to executive level (level 8). Gender bias is reflected in performance-review scores, which are used to determine who stays, who leaves, and who gets promoted.
 
-The simulator completes 20 promotional cycles, which represents 2 performance reviews per year for 10 years.
+A total of 20 performance-review cycles are generated (representing 2 per year for 10 years). An employee’s performance-review scores are cumulative, and the cumulative totals are used to determine outcomes for each employee.
 
-Before each promotional cycle the lowest ranking 15% of employees at all levels are removed, representing a 15% attrition rate.
+It is important to note that this simulation reflects the effects of cisgender bias on performance reviews and promotions only. It does not reflect its effects on hiring or firing, nor does it reflect the additional bias that transgender people and people with non-binary gender identities may face in the workplace.
 
-Retained employees are randomly assigned promotion scores from 1-100, or 1-100 + bias amount for the favored gender and each new score is added to that employee’s previous promotion scores.
+####Details
 
-Note: The simulator uses random selection for promotion scores. So the results will have a small variance.
+Before the simulation begins, there is a 1:1 gender ratio at each level. Performance-review scores are then randomly generated for employees at every level.
+
+The selected type/amount of gender bias is reflected in performance review scores. For example, if a 5% bias in favor of men is selected, the randomly generated performance-review scores for men are padded by 5%.
+
+Once a cycle’s performance-review scores are generated, a 15% turnover rate is applied: 15% employees at each level are randomly selected and removed from the simulation. Next, any positions that have opened up (as a result of turnover) are filled by taking the highest-ranking performers (based on cumulative performance-review scores) from the preceding level.
+
+Note: Because performance-review scores are randomly generated, simulation outcomes may vary.
+
+####Acknowledgments
+
+This simulation was inspired by ["Male-Female Differences: A Computer Simulation"](http://www.ruf.rice.edu/~lane/papers/male_female.pdf) by Richard F. Martell, David M. Lane, and Cynthia Emrich and [“From bias to exclusion: A multilevel emergent theory of gender segregation in organizations”](http://www.academia.edu/7444928/) by Richard F. Martell, Cynthia Emrich and James Robinson-Cox.
+
 
 ---
 ###Authors
