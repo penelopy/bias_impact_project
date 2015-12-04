@@ -33,7 +33,7 @@ class Control:
     def __init__(self, bias_favors_this_gender, promotion_bias):
         self.bias_favors_this_gender = bias_favors_this_gender
         self.promotion_bias = int(promotion_bias)
-        self.num_simulations = 35
+        self.num_simulations = 50
         self.attrition = 15
         self.iterations_per_simulation = 20
         self.num_positions_at_level = [500, 350, 200, 150, 100, 75, 40, 10]
@@ -74,11 +74,12 @@ class Control:
 
     def print_header(self):
         """Print header with variable info"""
+        print 
         print("Running {} simulations.".format(self.num_simulations))
         print("{0:2}% bias for men".format(self.promotion_bias))
         print("{0:2} promotion cycles".format(self.iterations_per_simulation))
         print("{0:2}% attrition rate".format(self.attrition))
-        print "attrition removes bottom 15%"
+        print "attrition is random"
 
     def print_summary(self):
         """Print summary is a replica of 'fetch_results' method used strictly for viewing data"""
@@ -108,18 +109,19 @@ class Control:
 
             summary = "%d\t%.2f\t%.2f" %(level + 1, men_percentage, women_percentage)
             print summary
+        print 
 
 
 
 if __name__ == "__main__": 
     # Printing & Testing
-    # control = Control('men', 1)
-    # control.run_simulations()
-    # control.print_header()
-    # summary = control.print_summary()
+    control = Control('men', 10)
+    control.run_simulations()
+    control.print_header()
+    summary = control.print_summary()
 
     # Running app 
-    app.run()
-    control = Control('men', 1)
-    control.run_simulations()
-    results = control.fetch_results()
+    # app.run()
+    # control = Control('men', 1)
+    # control.run_simulations()
+    # results = control.fetch_results()
