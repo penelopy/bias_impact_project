@@ -5,9 +5,6 @@ var dataHasChanged = function(){
     $.post("/bias", {bias: bias, gender: gender}, renderGraph);
 };
 
-
-
-
 function renderGraph(data){
 
   var $loading = $('#loading_div').hide();
@@ -144,5 +141,5 @@ function renderGraphTemplate(data){
   });
 }
 
-$.post("/bias", {bias: 10, gender: 'men'}, renderGraph);
+$.post("/bias", {bias: 1, gender: 'men'}, renderGraph);
 
