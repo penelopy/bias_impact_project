@@ -26,7 +26,7 @@ function renderGraph(data){
   var gender_favored = parsed_data[3];
 
   document.getElementById("chartLabel").innerHTML = 
-    "Changes in gender ratio when there is a " + "<span style='font-weight:900'>" + bias_amount + "% bias " + "</span>" + "in favor of " + "<span style='font-weight:900'>" + gender_favored + "</span>";
+    "Changes in gender ratio when there is a " + "<span style='color: rgb(52, 111, 154)'>" + bias_amount + "% bias " + "</span>" + "in favor of " + "<span style='color: rgb(52, 111, 154)'>" + gender_favored + "</span>";
 
   // Render graph
   $('#container').highcharts({
