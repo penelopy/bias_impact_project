@@ -2,7 +2,7 @@ class Employee:
 
     def __init__(self, gender):
         self.gender = gender
-        self.rating = 1
+        self.rating = 50
     #     self.cum_rating = None
     #     self.career_ratings_list = []
 

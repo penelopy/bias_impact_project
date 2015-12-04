@@ -33,7 +33,7 @@ class Control:
     def __init__(self, bias_favors_this_gender, promotion_bias):
         self.bias_favors_this_gender = bias_favors_this_gender
         self.promotion_bias = int(promotion_bias)
-        self.num_simulations = 50
+        self.num_simulations = 35
         self.attrition = 15
         self.iterations_per_simulation = 20
         self.num_positions_at_level = [500, 350, 200, 150, 100, 75, 40, 10]
@@ -58,8 +58,8 @@ class Control:
         women_append = total_women_at_levels.append
 
         for level in range(0, self.num_employee_levels):
-            total_num_men = 0
-            total_num_women = 0
+            total_num_men = 0.00
+            total_num_women = 0.00
             for result in self.results:
                 total_num_men += result.men[level]
                 total_num_women += result.women[level]
@@ -74,27 +74,27 @@ class Control:
 
 
     def print_summary(self):
-        """Print summary"""
+        """Print summary is a replica of 'fetch_results' method used strictly for viewing data"""
         print("Level\tMen\tWomen")
         print("%\t\t%")
         print("-----\t-----------------")
 
-        men_data = []
-        women_data = []
+        total_men_at_levels = []
+        total_women_at_levels = []
         # Setting append constructs here, saves compute time in loop
-        men_append = men_data.append 
-        women_append = women_data.append
+        men_append = total_men_at_levels.append 
+        women_append = total_women_at_levels.append
 
         for level in range(0, self.num_employee_levels):
-            men_total = 0.00
-            women_total = 0.00
+            total_num_men = 0.00
+            total_num_women = 0.00
             for result in self.results:
-                men_total += result.men[level]
-                women_total += result.women[level]
+                total_num_men += result.men[level]
+                total_num_women += result.women[level]
 
-            total_employees = men_total + women_total
-            men_percentage = 100 * men_total / total_employees
-            women_percentage = 100 * women_total / total_employees
+            total_employees = total_num_men + total_num_women
+            men_percentage = 100 * total_num_men / total_employees
+            women_percentage = 100 * total_num_women / total_employees
 
             men_append(men_percentage)
             women_append(women_percentage)
@@ -106,12 +106,12 @@ class Control:
 
 if __name__ == "__main__": 
     # Printing & Testing
-    # control = Control('men', 5)
+    # control = Control('men', 10)
     # control.run_simulations()
     # summary = control.print_summary()
 
     # Running app 
     app.run()
-    control = Control('men', 5)
+    control = Control('men', 10)
     control.run_simulations()
     results = control.fetch_results()
