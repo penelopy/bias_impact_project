@@ -21,7 +21,7 @@ function renderGraph(data){
   var womenDataset = parsed_data[1];
   var bias_amount = parsed_data[2];
   var gender_favored = parsed_data[3];
-
+  //Dynamically display graph details (bias amount, favored gender)
   document.getElementById("chartLabel").innerHTML = 
     "Changes in gender ratio when there is a " + "<span style='color: rgb(52, 111, 154)'>" + bias_amount + "% bias " + "</span>" + "in favor of " + "<span style='color: rgb(52, 111, 154)'>" + gender_favored + "</span>";
 
@@ -48,7 +48,6 @@ function renderGraph(data){
             'Level 7',
             'Level 8: Exec Level'
         ],
-        // crosshair: true
     },
     yAxis: {
         min: 0,

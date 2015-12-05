@@ -30,7 +30,7 @@ class Simulation:
     def hire(self):
         """Populates levels_to_employees with 50% male/50% female employees"""
         gender = ['men', 'women']
-        #randomly assign gender to first employee
+        #Randomly assign gender to first employee
         next_gender = random.choice(gender)
         level = 0
         for positions in self.num_positions_at_level:
@@ -57,36 +57,17 @@ class Simulation:
     def talent_review(self):
         """Looks at each employee object in dictionary, checks gender and gives
         random performance rating"""
-        # bias = 100 + self.promotion_bias
         for employee_list in self.levels_to_employees.values(): 
             for employee in employee_list:
                 new_rating = random.randint(0, 100)
                 if employee.gender == self.bias_favors_this_gender:
-                    # employee.rating = random.randint(0, bias)
                     previous_rating = employee.rating/2
-                    # new_rating = random.randint(0, bias)
-                    # saves updated rating to Employee object
+                    # Saves updated rating to Employee object
                     employee.rating = previous_rating + new_rating + self.promotion_bias
                 else:
-                    # employee.rating = random.randint(0, 100)
                     previous_rating = employee.rating/2
-                    # new_rating = random.randint(0, 100)
-                    # saves updated rating to Employee object
+                    # Saves updated rating to Employee object
                     employee.rating = previous_rating + new_rating
-
-    # def attrit(self):
-    #     """Looks at each employee in dictionary and removes the lowest ranking 
-    #        employees in each level"""
-
-    #     for level in range(self.num_employee_levels):
-    #         employee_list_at_level = self.levels_to_employees.get(level)
-    #         num_employees_at_level = len(employee_list_at_level)
-    #         num_employees_to_retain = int(num_employees_at_level * ((100 - self.attrition)/100.0))
-    #         employee_list_at_level.sort(key=lambda x: x.rating)
-    #         attrition = num_employees_at_level - num_employees_to_retain
-
-    #         self.levels_to_employees[level] = employee_list_at_level[attrition:]
-
 
     def attrit(self):
         """Looks at each employee in dictionary and randomly retains employees
@@ -102,6 +83,21 @@ class Simulation:
                 retained_employees.append(employee_list_at_level[i])
 
             self.levels_to_employees[level] = retained_employees
+
+    # An alternative approach to attrition/turnover
+    # def attrit(self):
+    #     """Looks at each employee in dictionary and removes the lowest ranking 
+    #        employees in each level"""
+
+    #     for level in range(self.num_employee_levels):
+    #         employee_list_at_level = self.levels_to_employees.get(level)
+    #         num_employees_at_level = len(employee_list_at_level)
+    #         num_employees_to_retain = int(num_employees_at_level * ((100 - self.attrition)/100.0))
+    #         employee_list_at_level.sort(key=lambda x: x.rating)
+    #         attrition = num_employees_at_level - num_employees_to_retain
+
+    #         self.levels_to_employees[level] = employee_list_at_level[attrition:]
+
 
     def promote(self):
         """Starts at highest level and checks for open positions, then removes the top
