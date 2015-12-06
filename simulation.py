@@ -70,34 +70,34 @@ class Simulation:
                     employee.rating = previous_rating + new_rating
 
     def attrit(self):
-        """Looks at each employee in dictionary and randomly retains employees
-        based on global attrition rate"""
+        """Looks at each employee in dictionary and removes the lowest ranking 
+           employees in each level"""
 
         for level in range(self.num_employee_levels):
             employee_list_at_level = self.levels_to_employees.get(level)
             num_employees_at_level = len(employee_list_at_level)
             num_employees_to_retain = int(num_employees_at_level * ((100 - self.attrition)/100.0))
-            indices_to_retain = random.choice(range(num_employees_at_level), num_employees_to_retain)
-            retained_employees = []
-            for i in indices_to_retain: 
-                retained_employees.append(employee_list_at_level[i])
+            employee_list_at_level.sort(key=lambda x: x.rating)
+            attrition = num_employees_at_level - num_employees_to_retain
 
-            self.levels_to_employees[level] = retained_employees
+            self.levels_to_employees[level] = employee_list_at_level[attrition:]
+
 
     # An alternative approach to attrition/turnover
     # def attrit(self):
-    #     """Looks at each employee in dictionary and removes the lowest ranking 
-    #        employees in each level"""
+    #     """Looks at each employee in dictionary and randomly retains employees
+    #     based on global attrition rate"""
 
     #     for level in range(self.num_employee_levels):
     #         employee_list_at_level = self.levels_to_employees.get(level)
     #         num_employees_at_level = len(employee_list_at_level)
     #         num_employees_to_retain = int(num_employees_at_level * ((100 - self.attrition)/100.0))
-    #         employee_list_at_level.sort(key=lambda x: x.rating)
-    #         attrition = num_employees_at_level - num_employees_to_retain
+    #         indices_to_retain = random.choice(range(num_employees_at_level), num_employees_to_retain)
+    #         retained_employees = []
+    #         for i in indices_to_retain: 
+    #             retained_employees.append(employee_list_at_level[i])
 
-    #         self.levels_to_employees[level] = employee_list_at_level[attrition:]
-
+    #         self.levels_to_employees[level] = retained_employees
 
     def promote(self):
         """Starts at highest level and checks for open positions, then removes the top

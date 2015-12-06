@@ -79,7 +79,7 @@ class Control:
         print("{0:2}% bias for men".format(self.promotion_bias))
         print("{0:2} promotion cycles".format(self.iterations_per_simulation))
         print("{0:2}% attrition rate".format(self.attrition))
-        print "attrition is random"
+        print "Attrition removes lowest ranking employees"
 
     def print_summary(self):
         """Print summary is a replica of 'fetch_results' method used strictly for viewing data"""
@@ -122,6 +122,6 @@ if __name__ == "__main__":
 
     # Running app 
     app.run()
-    control = Control('men', 10)
+    control = Control('men', 1)
     control.run_simulations()
     results = control.fetch_results()

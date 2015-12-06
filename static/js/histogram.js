@@ -140,5 +140,5 @@ function renderGraphTemplate(data){
   });
 }
 
-$.post("/bias", {bias: 10, gender: 'men'}, renderGraph);
+$.post("/bias", {bias: 1, gender: 'men'}, renderGraph);
 
