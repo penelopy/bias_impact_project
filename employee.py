@@ -2,6 +2,6 @@ class Employee:
 
     def __init__(self, gender):
         self.gender = gender
-        self.rating = 50
+        self.rating = 10
 
 
