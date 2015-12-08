@@ -33,7 +33,7 @@ class Control:
     def __init__(self, bias_favors_this_gender, promotion_bias):
         self.bias_favors_this_gender = bias_favors_this_gender
         self.promotion_bias = int(promotion_bias)
-        self.num_simulations = 50
+        self.num_simulations = 30
         self.attrition = 15
         self.iterations_per_simulation = 20
         self.num_positions_at_level = [500, 350, 200, 150, 100, 75, 40, 10]
@@ -115,13 +115,13 @@ class Control:
 
 if __name__ == "__main__": 
     # Printing & Testing
-    # control = Control('men', 1)
-    # control.run_simulations()
-    # control.print_header()
-    # summary = control.print_summary()
+    control = Control('men', 5)
+    control.run_simulations()
+    control.print_header()
+    summary = control.print_summary()
 
     # Running app 
-    app.run()
-    control = Control('men', 1)
-    control.run_simulations()
-    results = control.fetch_results()
+    # app.run()
+    # control = Control('men', 1)
+    # control.run_simulations()
+    # results = control.fetch_results()
