@@ -4,13 +4,11 @@ body {
  color: #777;
  margin: 0;
 }
-.btn-group_1 {
+.btn-group {
     text-align: center;
     min-height: 60px;
 }
 .btn-group_2 {
-    text-align: center;
-    min-height: 60px;
     padding-bottom: 20px;
 }
 .toggle-btn-grp * {
@@ -198,6 +196,8 @@ footer a:hover {
     }
     .btn-group {
         display: block;
+        margin-top: 10px;
+        text-align: left;
     }
     .chart-container {
         margin: 10px 10px 10px 0;
@@ -208,9 +208,6 @@ footer a:hover {
     .btn {
       display: block;
       margin-right: 0;
-    }
-    .btn-group {
-      margin-top: 10px;
     }
     footer a {
       display: block;
