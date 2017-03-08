@@ -53,7 +53,7 @@ This simulation was inspired by ["Male-Female Differences: A Computer Simulation
 
 ---
 ###Authors
-This project was built by [Penelope Hill](https://github.com/penelopy) during her the final 2 weeks of her Technical Fellowship at Square. Contributions have been made by [Alyssa Pohahau](https://github.com/alyssa), [Wendy Dherin](https://github.com/doubledherin), and [Dina Westland](https://github.com/dina). The idea for this project came from [Eric Burke](https://github.com/eburke). 
+This project was built by [Penelope Hill](https://github.com/penelopy) during her the final 2 weeks of her Technical Fellowship at Square. Contributions have been made by [Alyssa Pohahau](https://github.com/alyssa), [Wendy Dherin](https://github.com/doubledherin), and [Dina Westland](https://github.com/dina).
 
 ---
 ###License
