@@ -1,10 +1,8 @@
 ## Gender Bias 
 #### and its cumulative effect on careers and organizations
 
-<br>
-### View Project: [doesgenderbiasmatter.com(www.doesgenderbiasmatter.com)
-<br>
 
+### View Project: [doesgenderbiasmatter.com(www.doesgenderbiasmatter.com)
 
 ### Getting Started
 
