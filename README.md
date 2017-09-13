@@ -2,7 +2,7 @@
 #### and its cumulative effect on careers and organizations
 
 
-### View Project: [doesgenderbiasmatter.com(http://doesgenderbiasmatter.com)
+### View Project: [doesgenderbiasmatter.com](http://doesgenderbiasmatter.com)
 
 ### Getting Started
 
