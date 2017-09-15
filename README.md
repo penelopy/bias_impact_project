@@ -1,34 +1,36 @@
-##Gender Bias 
-####and its cumulative effect on careers and organizations
-
-<br>
-###View Project: [doesgenderbiasmatter.com(www.doesgenderbiasmatter.com)
-<br>
+## Gender Bias 
+#### and its cumulative effect on careers and organizations
 
 
-###Getting Started
+### View Project: [doesgenderbiasmatter.com](http://doesgenderbiasmatter.com)
+
+### Getting Started
 
 1. Fork the repository
 
-2. Install virtualenv `$ pip install virtualenv`
+1. Install virtualenv `$ pip install virtualenvwrapper`
 
-3. Cd into project folder `cd doesgenderbiasmatter`
+1. Set up virtual env `source /usr/local/bin/virtualenvwrapper.sh`
 
-4. Make virtualenv  `$ mkvirtualenv venv`
+1. Cd into project folder `cd doesgenderbiasmatter`
 
-5. Activate virtualenv `$ source venv/bin/activate`
+1. Make virtualenv  `$ mkvirtualenv venv`
 
-6. Install requirements file into your virtualenv `$ pip install requirements.txt`
+1. Activate virtualenv `$ source venv/bin/activate`
 
-7. Run server `$ python control.py`
+1. Install requirements file into your virtualenv `$ pip install -r requirements.txt`
 
-8. Deactivate virtualenv `$ deactivate`
+1. Run server `$ python control.py`
+
+1. View the site on http://localhost:5000
+
+1. Deactivate virtualenv `$ deactivate`
 
 
 ---
-###How It Works
+### How It Works
 
-####Overview
+#### Overview
 
 The simulation projects gender ratios for a theoretical company with eight hierarchical tiers, starting at entry-level (level 1) and proceeding to executive level (level 8). Gender bias is reflected in performance-review scores, which are used to determine who stays, who leaves, and who gets promoted.
 
@@ -36,7 +38,7 @@ A total of 20 performance-review cycles are generated (representing 2 per year f
 
 It is important to note that this simulation reflects the effects of cisgender bias on performance reviews and promotions only. It does not reflect its effects on hiring or firing, nor does it reflect the additional bias that transgender people and people with non-binary gender identities may face in the workplace.
 
-####Details
+#### Details
 
 Before the simulation begins, there is a 1:1 gender ratio at each level. Performance-review scores are then randomly generated for employees at every level.
 
@@ -46,23 +48,15 @@ Once a cycle’s performance-review scores are generated, a 15% turnover rate is
 
 Note: Because performance-review scores are randomly generated, simulation outcomes may vary.
 
-####Acknowledgments
+#### Acknowledgments
 
 This simulation was inspired by ["Male-Female Differences: A Computer Simulation"](http://www.ruf.rice.edu/~lane/papers/male_female.pdf) by Richard F. Martell, David M. Lane, and Cynthia Emrich and [“From bias to exclusion: A multilevel emergent theory of gender segregation in organizations”](http://www.academia.edu/7444928/) by Richard F. Martell, Cynthia Emrich and James Robinson-Cox.
 
 
 ---
-###Authors
+### Authors
 This project was built by [Penelope Hill](https://github.com/penelopy) during her the final 2 weeks of her Technical Fellowship at Square. Contributions have been made by [Alyssa Pohahau](https://github.com/alyssa), [Wendy Dherin](https://github.com/doubledherin), and [Dina Westland](https://github.com/dina). The idea for this project came from [Eric Burke](https://github.com/eburke). 
 
 ---
-###License
+### License
 See [License](LICENSE.txt) file for license rights and limitations (Apache).
-
-
-
-
-
-
-
-
