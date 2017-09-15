@@ -59,7 +59,7 @@ class Simulation:
         random performance rating"""
         for employee_list in self.levels_to_employees.values(): 
             for employee in employee_list:
-                new_rating = random.randint(0, 10)
+                new_rating = random.normal(10, 1)
                 bias = (self.promotion_bias/100.0) + 1
                 # print "bias calculation", bias
                 if employee.gender == self.bias_favors_this_gender:
